@@ -1,5 +1,5 @@
 # Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
+# your system/ Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 {
@@ -14,26 +14,16 @@
     # Include the results of the hardware scan.
     ./system/hardware-configuration.nix
 
-    ../../global/system/binary-compatibility.nix
-    ../../global/system/bluetooth.nix
-    ../../global/system/cups.nix
-    ../../global/system/fonts.nix
-    ../../global/system/kernel.nix
-    ../../global/system/net.nix
-    ../../global/system/nix.nix
-    ../../global/system/tzlocale.nix
+    ../../nixosModules/meta/baseSystem/desktop.nix
+    ../../nixosModules/desktop/suites/gnome.nix
 
-    ../../global/software/misc.nix
-    ../../global/software/fcitx.nix
-    ../../global/software/libvirt.nix
-    ../../global/software/dae.nix
-    ../../global/software/emacs.nix
-    ../../global/software/kmscon.nix
-    ../../global/software/steam.nix
+    ../../nixosModules/services/libvirt.nix
+    ../../nixosModules/services/dae.nix
+    ../../nixosModules/services/emacs.nix
+    ../../nixosModules/services/kmscon.nix
 
-    ../../global/desktops/gnome.nix
+    ../../nixosModules/desktop/steam.nix
 
-    ./system/fix-iwlwifi-bluetooth.nix
     ./system/nvidia.nix
     ./system/users.nix
     ./system/boot.nix
@@ -47,12 +37,12 @@
   networking.hostId = "a12be02d"; # For zfs; Make it random!
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  # services/openssh.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
+  # system/copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -70,7 +60,7 @@
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
   #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system/stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }

@@ -30,4 +30,11 @@
     epson-escpr2
     epson-escpr
   ];
+
+  environment.systemPackages = lib.mkOrder 600 (
+    with pkgs;
+    [
+      hplip
+    ]
+  );
 }

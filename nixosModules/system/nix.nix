@@ -33,4 +33,7 @@
 
   # Allow non-free software
   nixpkgs.config.allowUnfree = true;
+
+  # direnv
+  programs.direnv.enable = true;
 }

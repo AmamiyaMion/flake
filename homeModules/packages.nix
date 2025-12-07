@@ -1,0 +1,49 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+{
+  home.packages = lib.mkOrder 500 (
+    with pkgs;
+    [
+      fastfetch
+      hyfetch
+      (lib.hiPrio gcc)
+      gdb
+      llvm
+      lldb
+      clang
+      cmake
+      uv
+      python313Packages.python-lsp-server
+      rust-analyzer
+      clang-tools
+      guile
+      xmake
+      just
+      psmisc
+      gnumake
+      meson
+      ninja
+      cargo
+      rustc
+      android-tools
+      nixfmt
+      nixfmt-tree
+      nil
+      nixd
+      gh
+      go
+      file
+      nix-index
+      yarn
+      pnpm
+      nodejs
+      ffmpeg
+      imagemagick
+    ]
+  );
+}

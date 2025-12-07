@@ -1,8 +1,13 @@
 {
+  description = "Amamiya Mion's flakes!";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nur.url = "github:nix-community/nur";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
     mion-nur.url = "github:AmamiyaMion/nur";
     mion-nur.inputs.nixpkgs.follows = "nixpkgs";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -19,7 +24,10 @@
     inputs@{
       self,
       nixpkgs,
+      flake-utils,
+      flake-parts,
       home-manager,
+      nur,
       mion-nur,
       chaotic,
       nix-flatpak,
@@ -36,7 +44,6 @@
             ({
               nixpkgs.overlays = [
                 (final: prev: {
-                  # My NUR
                   mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
                   zen-browser = inputs.zen-browser.packages."${prev.stdenv.hostPlatform.system}";
                 })
@@ -44,13 +51,10 @@
             })
 
             lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
-
             chaotic.nixosModules.default # Chaotic-Nyx Repository
-
             nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
             ./machines/celeste/celeste.nix
-
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
