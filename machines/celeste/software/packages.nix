@@ -35,5 +35,6 @@
     hunspell
     hunspellDicts.en_US
     zen-browser.default
+    man-pages
   ];
 }
