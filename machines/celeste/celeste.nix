@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system/ Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
   config,
   lib,
@@ -24,12 +20,12 @@
     ../../nixosModules/services/clash-verge.nix
 
     ../../nixosModules/desktop/steam.nix
+    ../../nixosModules/desktop/1password.nix
 
     ./system/nvidia.nix
     ./system/users.nix
     ./system/boot.nix
 
-    ./software/1password.nix
     ./software/misc.nix
     ./software/packages.nix
   ];
