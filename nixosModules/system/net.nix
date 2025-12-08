@@ -29,9 +29,4 @@
     "1.1.1.1" # Cloudflare
     "9.9.9.9" # Quad9
   ];
-
-  # Clash Verge Rev
-  programs.clash-verge.enable = true;
-  programs.clash-verge.autoStart = true;
-  programs.clash-verge.serviceMode = true;
 }

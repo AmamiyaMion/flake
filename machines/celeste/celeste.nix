@@ -14,13 +14,14 @@
     # Include the results of the hardware scan.
     ./system/hardware-configuration.nix
 
-    ../../nixosModules/meta/baseSystem/desktop.nix
+    ../../nixosModules/profiles/baseSystem/desktop.nix
     ../../nixosModules/desktop/suites/gnome.nix
 
     ../../nixosModules/services/libvirt.nix
     ../../nixosModules/services/dae.nix
     ../../nixosModules/services/emacs.nix
     ../../nixosModules/services/kmscon.nix
+    ../../nixosModules/services/clash-verge.nix
 
     ../../nixosModules/desktop/steam.nix
 
