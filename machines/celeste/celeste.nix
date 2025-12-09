@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -9,6 +10,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./system/hardware-configuration.nix
+
+    inputs.lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
+    inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
     ../../nixosModules/profiles/baseSystem/desktop.nix
     ../../nixosModules/desktop/suites/gnome.nix

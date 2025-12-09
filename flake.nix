@@ -21,68 +21,51 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      flake-utils,
-      flake-parts,
-      home-manager,
-      nur,
-      mion-nur,
-      chaotic,
-      nix-flatpak,
-      nixos-hardware,
-      zen-browser,
-      lanzaboote,
-      ...
-    }:
+    inputs:
     let
       makeNixosSystem =
         {
           hostname,
-          _system,
-          extraModules,
+          system,
         }:
-        nixpkgs.lib.nixosSystem {
-          system = _system;
+        inputs.nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ({
               nixpkgs.overlays = [
                 (final: prev: {
+                  nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
                   mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
                   zen-browser = inputs.zen-browser.packages."${prev.stdenv.hostPlatform.system}";
                 })
               ];
             })
 
-            chaotic.nixosModules.default # Chaotic-Nyx Repository
+            inputs.chaotic.nixosModules.default # Chaotic-Nyx Repository
 
             ./machines/${hostname}/${hostname}.nix
-            home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs.flake-inputs = inputs;
               home-manager.users.mion = ./machines/${hostname}/home/home.nix;
             }
-          ]
-          ++ extraModules;
+          ];
         };
     in
     {
       nixosConfigurations = {
         celeste = makeNixosSystem {
           hostname = "celeste";
-          _system = "x86_64-linux";
-          extraModules = [
-            lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
-            nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
-          ];
+          system = "x86_64-linux";
         };
         elena = makeNixosSystem {
           hostname = "elena";
-          _system = "x86_64-linux";
-          extraModules = [ ];
+          system = "x86_64-linux";
         };
       };
     };
