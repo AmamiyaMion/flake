@@ -36,10 +36,15 @@
       lanzaboote,
       ...
     }:
-    {
-      nixosConfigurations = {
-        celeste = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+    let
+      makeNixosSystem =
+        {
+          hostname,
+          _system,
+          extraModules,
+        }:
+        nixpkgs.lib.nixosSystem {
+          system = _system;
           modules = [
             ({
               nixpkgs.overlays = [
@@ -50,19 +55,34 @@
               ];
             })
 
-            lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
             chaotic.nixosModules.default # Chaotic-Nyx Repository
-            nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
-            ./machines/celeste/celeste.nix
+            ./machines/${hostname}/${hostname}.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs.flake-inputs = inputs;
-              home-manager.users.mion = ./machines/celeste/home/home.nix;
+              home-manager.users.mion = ./machines/${hostname}/home/home.nix;
             }
+          ]
+          ++ extraModules;
+        };
+    in
+    {
+      nixosConfigurations = {
+        celeste = makeNixosSystem {
+          hostname = "celeste";
+          _system = "x86_64-linux";
+          extraModules = [
+            lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
+            nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
           ];
+        };
+        elena = makeNixosSystem {
+          hostname = "elena";
+          _system = "x86_64-linux";
+          extraModules = [ ];
         };
       };
     };
