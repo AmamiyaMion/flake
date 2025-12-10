@@ -9,6 +9,7 @@
   environment.systemPackages = lib.mkOrder 300 (
     with pkgs;
     [
+      git
       man-pages
       bat
       fd
@@ -23,7 +24,6 @@
       lshw
       ripgrep
       iw
-      piper
     ]
   );
 }

@@ -14,6 +14,7 @@
       (lib.hiPrio gcc)
       gdb
       llvm
+      lld
       lldb
       clang
       cmake

@@ -19,5 +19,6 @@
     file-roller
     wemeet
     cider-2
+    piper
   ];
 }
