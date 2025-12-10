@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  flake-inputs,
   ...
 }:
 
@@ -12,5 +13,7 @@
     ./ssh.nix
     ./vscode.nix
     ./packages.nix
+    
+    flake-inputs.nix-index-database.homeModules.default
   ];
 }
