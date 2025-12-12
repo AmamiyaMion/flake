@@ -15,7 +15,11 @@
       tree
       google-chrome
     ];
+    shell = pkgs.zsh;
   };
+  # for using zsh as shell
+  programs.zsh.enable = true;
+  environment.shells = with pkgs; [ zsh ];
 
   # Disable sudo. We use doas.
   security.doas.enable = true;

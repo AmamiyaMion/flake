@@ -10,23 +10,26 @@
   users.users.mion = {
     isNormalUser = true;
     description = "Mion";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ];
     packages = with pkgs; [
       tree
       google-chrome
     ];
+    shell = pkgs.zsh;
   };
+  # for using zsh as shell
+  programs.zsh.enable = true;
+  environment.shells = with pkgs; [ zsh ];
 
-  # sudo NOPASSWD
-  security.sudo.extraRules = [
+  # Disable sudo. We use doas.
+  security.doas.enable = true;
+  security.sudo.enable = false;
+  security.doas.extraRules = [
     {
       users = [ "mion" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
+      keepEnv = true;
+      noPass = true;
     }
   ];
+  environment.systemPackages = lib.mkOrder 100 [ pkgs.doas-sudo-shim ];
 }
