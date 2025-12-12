@@ -15,6 +15,7 @@
     fira-code
     fira-code-symbols
     maple-mono.Normal-NF
+    mion-nur.plangothic
   ];
   fonts.fontconfig = {
     antialias = true;
