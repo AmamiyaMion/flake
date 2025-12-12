@@ -13,7 +13,8 @@
     ./ssh.nix
     ./vscode.nix
     ./packages.nix
-    
+    ./nano.nix
+
     flake-inputs.nix-index-database.homeModules.default
   ];
 }
