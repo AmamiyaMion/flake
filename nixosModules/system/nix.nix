@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   # Enable nix command and flakes
@@ -22,7 +23,6 @@
         ;
     })
   ];
-
   nix.package = pkgs.lixPackageSets.stable.lix;
 
   # Mirror
@@ -33,6 +33,22 @@
 
   # Allow non-free software
   nixpkgs.config.allowUnfree = true;
+
+  # Enable automatic gc
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 7d";
+    dates = "daily";
+  };
+
+  # Enable automatic store optimise
+  nix.optimise.automatic = true;
+  # Enable store optimise on build
+  nix.settings.auto-optimise-store = true;
+
+  # This is important. It locks nixpkgs registry used in nix shell
+  # to the same of flakes. Saves time.
+  nix.registry = {pkgs.flake = inputs.self;} // lib.mapAttrs (_: flakes: {flake = flakes;}) inputs;
 
   # direnv
   programs.direnv.enable = true;
