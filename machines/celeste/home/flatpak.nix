@@ -23,6 +23,7 @@
       "com.usebottles.bottles"
       "org.localsend.localsend_app"
       "com.discordapp.Discord"
+      "io.typora.Typora"
     ];
     overrides = {
       global.Context = {
