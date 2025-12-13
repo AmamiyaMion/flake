@@ -22,6 +22,7 @@
       "com.tencent.WeChat"
       "com.usebottles.bottles"
       "org.localsend.localsend_app"
+      "com.discordapp.Discord"
     ];
     overrides = {
       global.Context = {
