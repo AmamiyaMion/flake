@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
@@ -23,8 +21,7 @@
   };
 
   environment.systemPackages = lib.mkOrder 800 (
-    with pkgs;
-    [
+    with pkgs; [
       gtop # for GNOME Shell Plugin
     ]
   );

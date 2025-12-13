@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   # Emacs
   services.emacs.enable = true;
   services.emacs.package = pkgs.emacs-gtk;

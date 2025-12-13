@@ -3,10 +3,8 @@
   lib,
   pkgs,
   ...
-}:
-
-{
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+}: {
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   # boot.zfs.package = pkgs.zfs_cachyos;
   services.scx.enable = true; # Use sched_ext
   # For OBS Studio Virtual Camera: v4l2loopback kernel module
@@ -28,5 +26,4 @@
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
-
 }

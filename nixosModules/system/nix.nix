@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   # Enable nix command and flakes
   nix.settings.experimental-features = [
     "nix-command"
@@ -14,7 +13,8 @@
   # Use Lix
   nixpkgs.overlays = [
     (final: prev: {
-      inherit (prev.lixPackageSets.stable)
+      inherit
+        (prev.lixPackageSets.stable)
         nixpkgs-review
         nix-eval-jobs
         nix-fast-build

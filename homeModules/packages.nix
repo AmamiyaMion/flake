@@ -3,12 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   home.packages = lib.mkOrder 500 (
-    with pkgs;
-    [
+    with pkgs; [
       fastfetch
       hyfetch
       (lib.hiPrio gcc)
@@ -32,10 +29,8 @@
       cargo
       rustc
       android-tools
-      nixfmt
-      nixfmt-tree
+      alejandra
       nil
-      nixd
       gh
       go
       file

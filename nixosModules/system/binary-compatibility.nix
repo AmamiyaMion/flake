@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   # AppImage
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;

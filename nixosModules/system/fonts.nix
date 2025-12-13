@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
@@ -21,10 +19,10 @@
     antialias = true;
     hinting.enable = true;
     defaultFonts = {
-      emoji = [ "Noto Color Emoji" ];
-      monospace = [ "Maple Mono Normal NF" ];
-      sansSerif = [ "Noto Sans CJK SC" ];
-      serif = [ "Noto Serif CJK SC" ];
+      emoji = ["Noto Color Emoji"];
+      monospace = ["Maple Mono Normal NF"];
+      sansSerif = ["Noto Sans CJK SC"];
+      serif = ["Noto Serif CJK SC"];
     };
   };
   fonts.fontconfig.useEmbeddedBitmaps = true;

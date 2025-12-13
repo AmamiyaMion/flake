@@ -3,10 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
-
+}: {
   imports = [
     ../../system/binary-compatibility.nix
     ../../system/bluetooth.nix
@@ -55,8 +52,7 @@
   security.polkit.enable = true;
 
   environment.systemPackages = lib.mkOrder 700 (
-    with pkgs;
-    [
+    with pkgs; [
       xclip
       wl-clipboard
     ]

@@ -7,9 +7,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -22,9 +20,9 @@
     "sd_mod"
     "sdhci_pci"
   ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = ["dm-snapshot"];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/mapper/cryptdsk-NixRoot";
@@ -41,14 +39,13 @@
   };
 
   swapDevices = [
-    { device = "/dev/mapper/cryptdsk-SWAP"; }
+    {device = "/dev/mapper/cryptdsk-SWAP";}
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  boot.initrd.luks.devices.cryptroot.device =
-    "/dev/disk/by-uuid/a4340961-22b7-43e0-9f69-d489b745b772";
+  boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/a4340961-22b7-43e0-9f69-d489b745b772";
 
   # This is to fix frequent Bluetooth audio dropouts.
   boot.extraModprobeConfig = ''

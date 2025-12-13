@@ -22,53 +22,50 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    inputs:
-    let
-      makeNixosSystem =
-        {
-          hostname,
-          system,
-        }:
-        inputs.nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ({
-              nixpkgs.overlays = [
-                (final: prev: {
-                  nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
-                  mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
-                  zen-browser = inputs.zen-browser.packages."${prev.stdenv.hostPlatform.system}";
-                })
-              ];
-            })
+  outputs = inputs: let
+    makeNixosSystem = {
+      hostname,
+      system,
+    }:
+      inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
+                mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
+                zen-browser = inputs.zen-browser.packages."${prev.stdenv.hostPlatform.system}";
+              })
+            ];
+          }
 
-            inputs.chaotic.nixosModules.default # Chaotic-Nyx Repository
+          inputs.chaotic.nixosModules.default # Chaotic-Nyx Repository
 
-            ./machines/${hostname}/${hostname}.nix
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs.flake-inputs = inputs;
-              home-manager.users.mion = ./machines/${hostname}/home/home.nix;
-            }
-          ];
-        };
-    in
-    {
-      nixosConfigurations = {
-        celeste = makeNixosSystem {
-          hostname = "celeste";
-          system = "x86_64-linux";
-        };
-        elena = makeNixosSystem {
-          hostname = "elena";
-          system = "x86_64-linux";
-        };
+          ./machines/${hostname}/${hostname}.nix
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs.flake-inputs = inputs;
+            home-manager.users.mion = ./machines/${hostname}/home/home.nix;
+          }
+        ];
+      };
+  in {
+    nixosConfigurations = {
+      celeste = makeNixosSystem {
+        hostname = "celeste";
+        system = "x86_64-linux";
+      };
+      elena = makeNixosSystem {
+        hostname = "elena";
+        system = "x86_64-linux";
       };
     };
+    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  };
 }

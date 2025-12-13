@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   services.printing.enable = true;
 
   # Enable Avahi: for autodiscovery of network printers
@@ -32,8 +30,7 @@
   ];
 
   environment.systemPackages = lib.mkOrder 600 (
-    with pkgs;
-    [
+    with pkgs; [
       hplip
     ]
   );

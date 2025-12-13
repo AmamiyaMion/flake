@@ -3,12 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   environment.systemPackages = lib.mkOrder 300 (
-    with pkgs;
-    [
+    with pkgs; [
       git
       man-pages
       bat

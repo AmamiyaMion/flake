@@ -3,9 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-
-{
+}: {
   home.file.".config/nano/nanorc".text = ''
     set autoindent
     set casesensitive
