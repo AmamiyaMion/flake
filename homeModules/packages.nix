@@ -30,7 +30,7 @@
       rustc
       android-tools
       alejandra
-      nil
+      nixd
       gh
       go
       file
