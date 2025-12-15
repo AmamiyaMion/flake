@@ -8,7 +8,7 @@
   users.users.mion = {
     isNormalUser = true;
     description = "Mion";
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "kvm" "adbusers"];
     packages = with pkgs; [
       tree
       google-chrome

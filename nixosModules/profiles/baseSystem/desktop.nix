@@ -51,6 +51,8 @@
   # PolicyKit
   security.polkit.enable = true;
 
+  programs.adb.enable = true;
+
   environment.systemPackages = lib.mkOrder 700 (
     with pkgs; [
       xclip
