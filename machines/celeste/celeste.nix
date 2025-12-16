@@ -25,7 +25,6 @@
     ../../nixosModules/desktop/1password.nix
 
     ./system/nvidia.nix
-    ./system/users.nix
     ./system/boot.nix
 
     ./software/misc.nix

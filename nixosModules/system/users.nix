@@ -9,10 +9,6 @@
     isNormalUser = true;
     description = "Mion";
     extraGroups = ["wheel" "kvm" "adbusers"];
-    packages = with pkgs; [
-      tree
-      google-chrome
-    ];
     shell = pkgs.zsh;
   };
   # for using zsh as shell

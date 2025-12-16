@@ -18,8 +18,6 @@
 
     ../../nixosModules/desktop/1password.nix
 
-    ./system/users.nix
-
     ./software/packages.nix
   ];
 

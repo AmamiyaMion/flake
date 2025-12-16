@@ -6,6 +6,7 @@
 }: {
   environment.systemPackages = lib.mkOrder 300 (
     with pkgs; [
+      tree
       git
       man-pages
       bat

@@ -6,6 +6,8 @@
 }: {
   home.packages = lib.mkOrder 500 (
     with pkgs; [
+      google-chrome
+      microsoft-edge
       fastfetch
       hyfetch
       (lib.hiPrio gcc)

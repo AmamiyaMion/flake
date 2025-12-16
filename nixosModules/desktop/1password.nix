@@ -16,6 +16,8 @@
     "1password/custom_allowed_browsers" = {
       text = ''
         google-chrome-stable
+        microsoft-edge
+        microsoft-edge-stable
         firefox
         zen
         zen-bin
