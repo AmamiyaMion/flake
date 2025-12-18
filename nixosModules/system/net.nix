@@ -21,10 +21,23 @@
   services.zerotierone.enable = true;
 
   networking.nameservers = [
-    "8.8.4.4" # Google
-    "1.1.1.1" # Cloudflare
-    "9.9.9.9" # Quad9
-    "119.29.29.29" # Tencent
+    "9.9.9.9#dns.quad9.net" # Quad9
+    "1.1.1.1#one.one.one.one" # Cloudflare
+    "8.8.8.8#dns.google" # Google
+    "119.29.29.29#dot.pub" # Tencent
     "223.5.5.5" # AliDNS
   ];
+
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    fallbackDns = [
+      "9.9.9.9"
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
+    dnsovertls = "true";
+  };
+  boot.initrd.services.resolved.enable = true;
 }
