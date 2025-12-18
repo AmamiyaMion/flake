@@ -21,10 +21,10 @@
   services.zerotierone.enable = true;
 
   networking.nameservers = [
-    "119.29.29.29" # Tencent
-    "223.5.5.5" # AliDNS
     "8.8.4.4" # Google
     "1.1.1.1" # Cloudflare
     "9.9.9.9" # Quad9
+    "119.29.29.29" # Tencent
+    "223.5.5.5" # AliDNS
   ];
 }
