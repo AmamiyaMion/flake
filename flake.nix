@@ -1,6 +1,8 @@
 {
   description = "Amamiya Mion's flakes!";
   inputs = {
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    determinate.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -42,9 +44,8 @@
               })
             ];
           }
-
           inputs.chaotic.nixosModules.default # Chaotic-Nyx Repository
-
+          inputs.determinate.nixosModules.default # Determinate Nix
           ./machines/${hostname}/${hostname}.nix
           inputs.home-manager.nixosModules.home-manager
           {
@@ -67,5 +68,19 @@
       };
     };
     formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
+
+    devShells.x86_64-linux.default = let
+      inherit (inputs.nixpkgs.legacyPackages.x86_64-linux) pkgs;
+    in
+      pkgs.mkShell {
+        name = "Amamiya Mion's Nix dev shell";
+        buildInputs = with pkgs; [
+          nixd
+          alejandra
+          nh
+          just
+        ];
+        EDITOR = "emacs -nw";
+      };
   };
 }
