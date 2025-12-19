@@ -41,6 +41,7 @@
       nodejs
       ffmpeg
       imagemagick
+      emacs
     ]
   );
 

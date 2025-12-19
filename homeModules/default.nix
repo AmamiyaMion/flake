@@ -12,6 +12,7 @@
     ./vscode.nix
     ./packages.nix
     ./nano.nix
+    ./emacs.nix
 
     flake-inputs.nix-index-database.homeModules.default
   ];
