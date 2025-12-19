@@ -15,7 +15,7 @@
     ../../system/tzlocale.nix
     ../../system/packages.nix
     ../../system/users.nix
-    
+
     ../../desktop/fcitx.nix
   ];
 
