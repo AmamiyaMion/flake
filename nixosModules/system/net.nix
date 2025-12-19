@@ -21,23 +21,82 @@
   services.zerotierone.enable = true;
 
   networking.nameservers = [
-    "9.9.9.9#dns.quad9.net" # Quad9
-    "1.1.1.1#one.one.one.one" # Cloudflare
-    "8.8.8.8#dns.google" # Google
-    "119.29.29.29#dot.pub" # Tencent
+    "9.9.9.9" # Quad9
+    "119.29.29.29" # Tencent
+    "1.1.1.1" # Cloudflare
     "223.5.5.5" # AliDNS
   ];
+  networking.networkmanager.dns = "none";
 
-  services.resolved = {
+  # services.stubby = {
+  #   enable = true;
+  #   settings =
+  #     pkgs.stubby.passthru.settingsExample
+  #     // {
+  #       upstream_recursive_servers = [
+  #         {
+  #           address_data = "9.9.9.9";
+  #           tls_auth_name = "dns.quad9.net";
+  #           tls_pubkey_pinset = [
+  #             {
+  #               digest = "sha256";
+  #               value = "i2kObfz0qIKCGNWt7MjBUeSrh0Dyjb0/zWINImZES+I=";
+  #             }
+  #           ];
+  #         }
+  #         {
+  #           address_data = "1.1.1.1";
+  #           tls_auth_name = "one.one.one.one";
+  #           tls_pubkey_pinset = [
+  #             {
+  #               digest = "sha256";
+  #               value = "SPfg6FluPIlUc6a5h313BDCxQYNGX+THTy7ig5X3+VA=";
+  #             }
+  #           ];
+  #         }
+  #         {
+  #           address_data = "1.0.0.1";
+  #           tls_auth_name = "one.one.one.one";
+  #           tls_pubkey_pinset = [
+  #             {
+  #               digest = "sha256";
+  #               value = "SPfg6FluPIlUc6a5h313BDCxQYNGX+THTy7ig5X3+VA=";
+  #             }
+  #           ];
+  #         }
+  #         {
+  #           address_data = "119.29.29.29";
+  #           tls_auth_name = "dot.pub";
+  #           tls_pubkey_pinset = [
+  #             {
+  #               digest = "sha256";
+  #               value = "5TIMjgyMhA0qmPdK+AM9LX6vNI/9EPBydh/ZXdfcYmI=";
+  #             }
+  #           ];
+  #         }
+  #       ];
+  #     };
+  # };
+  services.dnscrypt-proxy = {
     enable = true;
-    dnssec = "true";
-    domains = [ "~." ];
-    fallbackDns = [
-      "9.9.9.9"
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
-    dnsovertls = "true";
+    # Settings reference:
+    # https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
+    settings = {
+      ipv6_servers = true;
+      require_dnssec = true;
+      # Add this to test if dnscrypt-proxy is actually used to resolve DNS requests
+      # query_log.file = "/var/log/dnscrypt-proxy/query.log";
+      sources.public-resolvers = {
+        urls = [
+          "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+          "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+        ];
+        cache_file = "/var/cache/dnscrypt-proxy/public-resolvers.md";
+        minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+      };
+
+      # You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+      server_names = ["quad9-dnscrypt-ip4-filter-pri" "cloudflare" "nextdns" "dnspod" "alidns-doh"];
+    };
   };
-  boot.initrd.services.resolved.enable = true;
 }

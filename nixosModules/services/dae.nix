@@ -68,6 +68,7 @@
       pname(qq) -> must_direct
       pname(tailscaled) -> must_direct
       pname(tailscale) -> must_direct
+      pname(systemd-resolved) -> must_direct
 
       dip(224.0.0.0/3, 'ff00::/8') -> direct
       dip(geoip:private) -> direct
