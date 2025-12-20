@@ -9,7 +9,7 @@
     ./system/hardware-configuration.nix
 
     ../../nixosModules/profiles/baseSystem/desktop.nix
-    ../../nixosModules/desktop/suites/gnome.nix
+    ../../nixosModules/desktop/suites/sway.nix
 
     ../../nixosModules/services/dae.nix
     ../../nixosModules/services/emacs.nix
