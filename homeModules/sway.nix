@@ -29,7 +29,7 @@ in {
       bars = [];
       fonts = lib.mkForce {
         names = [
-          "Maple Mono Normal"
+          "Maple Mono Normal NF"
           "Noto Sans CJK SC"
         ];
         style = "Retina";
