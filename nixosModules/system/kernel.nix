@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
   # boot.zfs.package = pkgs.zfs_cachyos;
   services.scx.enable = true; # Use sched_ext
   # For OBS Studio Virtual Camera: v4l2loopback kernel module

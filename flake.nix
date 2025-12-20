@@ -10,8 +10,6 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
     mion-nur.url = "github:AmamiyaMion/nur";
     mion-nur.inputs.nixpkgs.follows = "nixpkgs";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    chaotic.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     zen-browser.url = "github:youwen5/zen-browser-flake";
@@ -20,6 +18,7 @@
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
   };
 
   outputs = inputs: let
@@ -40,9 +39,9 @@
                 mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
                 zen-browser = inputs.zen-browser.packages."${prev.stdenv.hostPlatform.system}";
               })
+              inputs.nix-cachyos-kernel.overlay
             ];
           }
-          inputs.chaotic.nixosModules.default # Chaotic-Nyx Repository
           ./machines/${hostname}/${hostname}.nix
           inputs.home-manager.nixosModules.home-manager
           {

@@ -6,16 +6,20 @@
   ...
 }: {
   # Use Lix
-  nixpkgs.overlays = [ (final: prev: {
-    inherit (prev.lixPackageSets.stable)
-      nixpkgs-review
-      nix-eval-jobs
-      nix-fast-build
-      colmena;
-  }) ];
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit
+        (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
 
   nix.package = pkgs.lixPackageSets.latest.lix;
-  
+
   # Enable nix command and flakes
   nix.settings.experimental-features = [
     "nix-command"
@@ -25,7 +29,9 @@
   # Mirror
   nix.settings.substituters = [
     "https://mirror.sjtu.edu.cn/nix-channels/store"
+    "https://attic.xuyh0120.win/lantian"
   ];
+  nix.settings.trusted-public-keys = ["lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="];
 
   # Allow non-free software
   nixpkgs.config.allowUnfree = true;
