@@ -21,8 +21,8 @@
   services.zerotierone.enable = true;
 
   networking.nameservers = [
-    "9.9.9.9" # Quad9
     "119.29.29.29" # Tencent
+    "9.9.9.9" # Quad9
     "1.1.1.1" # Cloudflare
     "223.5.5.5" # AliDNS
   ];
@@ -96,7 +96,7 @@
       };
 
       # You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
-      server_names = ["quad9-dnscrypt-ip4-filter-pri" "cloudflare" "nextdns" "dnspod" "alidns-doh"];
+      server_names = ["dnspod" "quad9-dnscrypt-ip4-filter-pri" "cloudflare" "nextdns" "alidns-doh"];
     };
   };
 }
