@@ -362,7 +362,7 @@
       if [ -z "$( run ls -A '${config.home.homeDirectory}/.config/emacs/' )" ]; then
         run rm -rf ${config.home.homeDirectory}/.emacs.d
         run ${pkgs.git}/bin/git clone https://github.com/doomemacs/doomemacs.git ${config.home.homeDirectory}/.config/emacs/
-        PATH="${config.home.path}/bin:$PATH" run ${config.home.homeDirectory}/.config/emacs/bin/doom install --env
+        PATH="${config.home.path}/bin:$PATH" run ${config.home.homeDirectory}/.config/emacs/bin/doom install --env -!
       else
         cd ${config.home.homeDirectory}/.config/emacs/
         run ${pkgs.git}/bin/git pull
