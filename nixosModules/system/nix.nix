@@ -5,6 +5,17 @@
   inputs,
   ...
 }: {
+  # Use Lix
+  nixpkgs.overlays = [ (final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-eval-jobs
+      nix-fast-build
+      colmena;
+  }) ];
+
+  nix.package = pkgs.lixPackageSets.latest.lix;
+  
   # Enable nix command and flakes
   nix.settings.experimental-features = [
     "nix-command"

@@ -1,8 +1,6 @@
 {
   description = "Amamiya Mion's flakes!";
   inputs = {
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-    determinate.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +43,6 @@
             ];
           }
           inputs.chaotic.nixosModules.default # Chaotic-Nyx Repository
-          inputs.determinate.nixosModules.default # Determinate Nix
           ./machines/${hostname}/${hostname}.nix
           inputs.home-manager.nixosModules.home-manager
           {
@@ -79,6 +76,7 @@
           alejandra
           nh
           just
+          openssl
         ];
         EDITOR = "emacs -nw";
       };
