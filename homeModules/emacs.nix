@@ -357,17 +357,18 @@
     ;;    :files ("*.el")))
 
   '';
-  home.activation = {
-    doomEmacsUpdate = lib.hm.dag.entryAfter ["installPackages"] ''
-      if [ -z "$( run ls -A '${config.home.homeDirectory}/.config/emacs/' )" ]; then
-        run rm -rf ${config.home.homeDirectory}/.emacs.d
-        run ${pkgs.git}/bin/git clone https://github.com/doomemacs/doomemacs.git ${config.home.homeDirectory}/.config/emacs/
-        PATH="${config.home.path}/bin:$PATH" run ${config.home.homeDirectory}/.config/emacs/bin/doom install --env
-      else
-        cd ${config.home.homeDirectory}/.config/emacs/
-        run ${pkgs.git}/bin/git pull
-      fi
-      PATH="${config.home.path}/bin:$PATH" run ${config.home.homeDirectory}/.config/emacs/bin/doom sync
-    '';
-  };
+  # disabling this because it causes home-manager-<username>.service to fail to start during boot
+  # home.activation = {
+  #   doomEmacsUpdate = lib.hm.dag.entryAfter ["installPackages"] ''
+  #     if [ -z "$( run ls -A '${config.home.homeDirectory}/.config/emacs/' )" ]; then
+  #       run rm -rf ${config.home.homeDirectory}/.emacs.d
+  #       run ${pkgs.git}/bin/git clone https://github.com/doomemacs/doomemacs.git ${config.home.homeDirectory}/.config/emacs/
+  #       PATH="${config.home.path}/bin:$PATH" run ${config.home.homeDirectory}/.config/emacs/bin/doom install --env
+  #     else
+  #       cd ${config.home.homeDirectory}/.config/emacs/
+  #       run ${pkgs.git}/bin/git pull
+  #     fi
+  #     PATH="${config.home.path}/bin:$PATH" run ${config.home.homeDirectory}/.config/emacs/bin/doom sync
+  #   '';
+  # };
 }
