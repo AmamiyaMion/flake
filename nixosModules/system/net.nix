@@ -18,7 +18,8 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  services.zerotierone.enable = true;
+  services.tailscale.enable = true;
+  services.tailscale.authKeyFile = config.sops.secrets.ts_authkey.path;
 
   networking.nameservers = [
     "119.29.29.29" # Tencent

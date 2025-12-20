@@ -19,9 +19,12 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: let
+    secretsPath = ./secrets;
     makeNixosSystem = {
       hostname,
       system,
@@ -30,6 +33,7 @@
         inherit system;
         specialArgs = {
           inherit inputs;
+          inherit secretsPath;
         };
         modules = [
           {
@@ -42,6 +46,7 @@
               inputs.nix-cachyos-kernel.overlay
             ];
           }
+          inputs.sops-nix.nixosModules.sops
           ./machines/${hostname}/${hostname}.nix
           inputs.home-manager.nixosModules.home-manager
           {
@@ -76,6 +81,8 @@
           nh
           just
           openssl
+          sops
+          age
         ];
         EDITOR = "emacs -nw";
       };

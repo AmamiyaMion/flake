@@ -12,6 +12,7 @@
     ../../system/kernel.nix
     ../../system/net.nix
     ../../system/nix.nix
+    ../../system/secrets.nix
     ../../system/tzlocale.nix
     ../../system/packages.nix
     ../../system/users.nix
