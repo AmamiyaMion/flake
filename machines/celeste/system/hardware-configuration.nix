@@ -12,6 +12,9 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  # Use CachyOS Kernel
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+  
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
