@@ -6,6 +6,10 @@ rebuild:
 switch: rebuild
 r: rebuild
 
+boot:
+    {{SUDO_COMMAND}} nixos-rebuild boot --flake .
+b: boot
+
 update:
 	nix flake update
 u: update
