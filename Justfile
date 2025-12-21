@@ -1,5 +1,5 @@
 SUDO_COMMAND := "sudo"
-default: update rebuild
+default: pull update rebuild
 
 rebuild:
 	{{SUDO_COMMAND}} nixos-rebuild switch --flake .
@@ -36,7 +36,9 @@ commit-all msg:
 
 push:
 	git push
-p: push
+
+pull:
+    git pull
 
 noproxy:
     {{SUDO_COMMAND}} dae suspend
