@@ -1,0 +1,20 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ../../system/binary-compatibility.nix
+    ../../system/bluetooth.nix
+    ../../system/cups.nix
+    ../../system/fonts.nix
+    ../../system/kernel.nix
+    ../../system/net.nix
+    ../../system/nix.nix
+    ../../system/secrets.nix
+    ../../system/tzlocale.nix
+    ../../system/packages.nix
+    ../../users/mion.nix
+  ];
+}

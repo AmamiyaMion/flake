@@ -5,19 +5,10 @@
   ...
 }: {
   imports = [
-    ../../system/binary-compatibility.nix
-    ../../system/bluetooth.nix
-    ../../system/cups.nix
-    ../../system/fonts.nix
-    ../../system/kernel.nix
-    ../../system/net.nix
-    ../../system/nix.nix
-    ../../system/secrets.nix
-    ../../system/tzlocale.nix
-    ../../system/packages.nix
-    ../../system/users.nix
+    ../../baseSystem
 
-    ../../desktop/fcitx.nix
+    ../../../desktop/fcitx.nix
+    ../../../services/tailscale.nix
   ];
 
   # Enable touchpad support (enabled default in most desktopManager).

@@ -12,8 +12,7 @@
     inputs.lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
     inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
-    ../../nixosModules/profiles/baseSystem/desktop.nix
-    ../../nixosModules/desktop/suites/gnome.nix
+    ../../nixosModules/profiles/baseSystem/desktop/gnome
 
     ../../nixosModules/services/libvirt.nix
     ../../nixosModules/services/dae.nix

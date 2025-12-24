@@ -4,6 +4,9 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ../../desktop
+  ];
   programs.sway.enable = true;
   programs.sway.wrapperFeatures.gtk = true;
   security.polkit.enable = true; # polkit

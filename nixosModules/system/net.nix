@@ -18,9 +18,6 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  services.tailscale.enable = true;
-  services.tailscale.authKeyFile = config.sops.secrets.ts_authkey.path;
-
   networking.nameservers = [
     "119.29.29.29" # Tencent
     "9.9.9.9" # Quad9
@@ -29,55 +26,6 @@
   ];
   networking.networkmanager.dns = "none";
 
-  # services.stubby = {
-  #   enable = true;
-  #   settings =
-  #     pkgs.stubby.passthru.settingsExample
-  #     // {
-  #       upstream_recursive_servers = [
-  #         {
-  #           address_data = "9.9.9.9";
-  #           tls_auth_name = "dns.quad9.net";
-  #           tls_pubkey_pinset = [
-  #             {
-  #               digest = "sha256";
-  #               value = "i2kObfz0qIKCGNWt7MjBUeSrh0Dyjb0/zWINImZES+I=";
-  #             }
-  #           ];
-  #         }
-  #         {
-  #           address_data = "1.1.1.1";
-  #           tls_auth_name = "one.one.one.one";
-  #           tls_pubkey_pinset = [
-  #             {
-  #               digest = "sha256";
-  #               value = "SPfg6FluPIlUc6a5h313BDCxQYNGX+THTy7ig5X3+VA=";
-  #             }
-  #           ];
-  #         }
-  #         {
-  #           address_data = "1.0.0.1";
-  #           tls_auth_name = "one.one.one.one";
-  #           tls_pubkey_pinset = [
-  #             {
-  #               digest = "sha256";
-  #               value = "SPfg6FluPIlUc6a5h313BDCxQYNGX+THTy7ig5X3+VA=";
-  #             }
-  #           ];
-  #         }
-  #         {
-  #           address_data = "119.29.29.29";
-  #           tls_auth_name = "dot.pub";
-  #           tls_pubkey_pinset = [
-  #             {
-  #               digest = "sha256";
-  #               value = "5TIMjgyMhA0qmPdK+AM9LX6vNI/9EPBydh/ZXdfcYmI=";
-  #             }
-  #           ];
-  #         }
-  #       ];
-  #     };
-  # };
   services.dnscrypt-proxy = {
     enable = true;
     # Settings reference:

@@ -8,8 +8,7 @@
     # Include the results of the hardware scan.
     ./system/hardware-configuration.nix
 
-    ../../nixosModules/profiles/baseSystem/desktop.nix
-    ../../nixosModules/desktop/suites/sway.nix
+    ../../nixosModules/profiles/baseSystem/desktop/sway
 
     ../../nixosModules/services/dae.nix
     ../../nixosModules/services/emacs.nix
