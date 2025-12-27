@@ -16,7 +16,7 @@ u: update
 up: update
 
 gc:
-    {{SUDO_COMMAND}} nix-collect-garbage -d
+    {{SUDO_COMMAND}} nh clean all
 clean: gc
 c: gc
 
