@@ -19,6 +19,7 @@
 
   programs.zsh = {
     enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
     antidote = {
       enable = true;
       plugins = [
