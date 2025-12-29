@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   services.dae.enable = true;
   services.dae.config = ''
     global {

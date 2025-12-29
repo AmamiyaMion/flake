@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
   # boot.zfs.package = pkgs.zfs_cachyos;
   services.scx.enable = true; # Use sched_ext

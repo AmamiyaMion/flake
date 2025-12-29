@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../../baseSystem
 
@@ -47,7 +48,8 @@
   programs.adb.enable = true;
 
   environment.systemPackages = lib.mkOrder 700 (
-    with pkgs; [
+    with pkgs;
+    [
       xclip
       wl-clipboard
     ]

@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -45,7 +46,13 @@
       };
 
       # You can choose a specific set of servers from https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
-      server_names = ["dnspod" "quad9-dnscrypt-ip4-filter-pri" "cloudflare" "nextdns" "alidns-doh"];
+      server_names = [
+        "dnspod"
+        "quad9-dnscrypt-ip4-filter-pri"
+        "cloudflare"
+        "nextdns"
+        "alidns-doh"
+      ];
     };
   };
 }

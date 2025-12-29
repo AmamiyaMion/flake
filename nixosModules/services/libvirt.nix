@@ -3,9 +3,10 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["mion"];
+  users.groups.libvirtd.members = [ "mion" ];
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -15,5 +16,5 @@
     };
   };
   virtualisation.spiceUSBRedirection.enable = true;
-  virtualisation.libvirtd.qemu.vhostUserPackages = [pkgs.virtiofsd];
+  virtualisation.libvirtd.qemu.vhostUserPackages = [ pkgs.virtiofsd ];
 }

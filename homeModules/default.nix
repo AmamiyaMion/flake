@@ -4,7 +4,8 @@
   pkgs,
   flake-inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./git.nix
     ./shells.nix

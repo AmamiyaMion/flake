@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   home.packages = lib.mkOrder 500 (
-    with pkgs; [
+    with pkgs;
+    [
       google-chrome
       microsoft-edge
       fastfetch
@@ -31,7 +33,7 @@
       cargo
       rustc
       android-tools
-      alejandra
+      nixfmt-rfc-style
       nixd
       gh
       go

@@ -4,12 +4,12 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   # Use Lix
   nixpkgs.overlays = [
     (final: prev: {
-      inherit
-        (prev.lixPackageSets.stable)
+      inherit (prev.lixPackageSets.stable)
         nixpkgs-review
         nix-eval-jobs
         nix-fast-build
@@ -31,7 +31,7 @@
     "https://mirror.sjtu.edu.cn/nix-channels/store"
     "https://attic.xuyh0120.win/lantian"
   ];
-  nix.settings.trusted-public-keys = ["lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="];
+  nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
 
   # Allow non-free software
   nixpkgs.config.allowUnfree = true;
@@ -86,7 +86,10 @@
 
   # This is important. It locks nixpkgs registry used in nix shell
   # to the same of flakes. Saves time.
-  nix.registry = {pkgs.flake = inputs.self;} // lib.mapAttrs (_: flakes: {flake = flakes;}) inputs;
+  nix.registry = {
+    pkgs.flake = inputs.self;
+  }
+  // lib.mapAttrs (_: flakes: { flake = flakes; }) inputs;
 
   # direnv
   programs.direnv.enable = true;

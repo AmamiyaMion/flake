@@ -7,7 +7,8 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -17,9 +18,9 @@
     "ahci"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = ["dm-snapshot"];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "/dev/mapper/cryptdsk-NixRoot";
@@ -36,10 +37,11 @@
   };
 
   swapDevices = [
-    {device = "/dev/mapper/cryptdsk-SWAP";}
+    { device = "/dev/mapper/cryptdsk-SWAP"; }
   ];
 
-  boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/d8f30757-16fa-4553-b251-42cecf9698ec";
+  boot.initrd.luks.devices.cryptroot.device =
+    "/dev/disk/by-uuid/d8f30757-16fa-4553-b251-42cecf9698ec";
   boot.loader.systemd-boot.enable = true;
   boot.initrd.systemd.enable = true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

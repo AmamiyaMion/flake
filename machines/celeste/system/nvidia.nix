@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   # NOTICE: This is only to patch the nix-hardware nvidia settings.
   #   Most configurations are done in the nix-hardware module.
 

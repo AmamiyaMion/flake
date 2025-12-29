@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../../system/binary-compatibility.nix
     ../../system/bluetooth.nix

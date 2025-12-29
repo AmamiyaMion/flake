@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   home.file.".config/doom/init.el".text = ''
     ;;; init.el -*- lexical-binding: t; -*-
 
@@ -285,9 +286,6 @@
     (setq require-final-newline t)
     ;; (use-package ebuild-mode)
     ;; (use-package portage-modes)
-    (after! nix-mode
-      (set-formatter! 'alejandra '("alejandra" "--quiet") :modes '(nix-mode)))
-    (setq-hook! 'nix-mode-hook +format-with-lsp nil)
     (with-eval-after-load 'lsp-mode
       (lsp-register-client
        (make-lsp-client :new-connection (lsp-stdio-connection "nixd")

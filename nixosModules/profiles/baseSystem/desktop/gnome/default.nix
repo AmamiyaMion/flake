@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../../desktop
   ];
@@ -25,7 +26,8 @@
   };
 
   environment.systemPackages = lib.mkOrder 800 (
-    with pkgs; [
+    with pkgs;
+    [
       gtop # for GNOME Shell Plugin
     ]
   );

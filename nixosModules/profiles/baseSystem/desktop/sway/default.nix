@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../../desktop
   ];
@@ -11,11 +12,12 @@
   programs.sway.wrapperFeatures.gtk = true;
   security.polkit.enable = true; # polkit
   services.gnome.gnome-keyring.enable = true; # secret service
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   programs.waybar.enable = true; # top bar
   environment.systemPackages = lib.mkOrder 650 (
-    with pkgs; [
+    with pkgs;
+    [
       kitty
       rofi
       swaylock

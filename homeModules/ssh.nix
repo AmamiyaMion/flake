@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   # Set up AOSC Buildbots ssh config
   home.file.".ssh/config.d/aosc".source = pkgs.fetchurl {
     url = "https://cdn.jsdelivr.net/gh/AOSC-Dev/Buildbots/ssh_config";
