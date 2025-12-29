@@ -4,11 +4,10 @@
   pkgs,
   ...
 }: {
-  # Kernel is now selected in per-machine configs.
-  # Move to machines/[hostname]/system/hardware-configuration.nix for kernel selection.
-  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
   # boot.zfs.package = pkgs.zfs_cachyos;
   services.scx.enable = true; # Use sched_ext
+  services.scx.scheduler = "scx_lavd";
   # For OBS Studio Virtual Camera: v4l2loopback kernel module
   # Fix: nixpkgs/nixos-unstable v4l2loopback broken on linux 6.18,
   # using package from nixpkgs/nixos-25.11
