@@ -74,11 +74,14 @@
           system = "x86_64-linux";
         };
       };
-      formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+    }
+    // inputs.flake-utils.lib.eachDefaultSystem (system: {
 
-      devShells.x86_64-linux.default =
+      formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-tree;
+
+      devShells.default =
         let
-          inherit (inputs.nixpkgs.legacyPackages.x86_64-linux) pkgs;
+          inherit (inputs.nixpkgs.legacyPackages.${system}) pkgs;
         in
         pkgs.mkShell {
           name = "Amamiya Mion's Nix dev shell";
@@ -93,5 +96,5 @@
           ];
           EDITOR = "emacs -nw";
         };
-    };
+    });
 }
