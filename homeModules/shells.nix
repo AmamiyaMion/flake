@@ -45,7 +45,7 @@
     };
     autocd = true;
     initContent = lib.mkOrder 1200 ''
-      source ~/.p10k.zsh
+      source ${config.programs.zsh.dotDir}/.p10k.zsh
     ''; # for p10k;
     completionInit = ''
       zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
