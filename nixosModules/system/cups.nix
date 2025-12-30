@@ -17,15 +17,15 @@
   # Drivers
   services.printing.drivers = with pkgs; [
     gutenprint
-    gutenprintBin
+    (lib.mkIf (stdenv.system == "x86_64-linux") gutenprintBin)
     hplipWithPlugin
     postscript-lexmark
     samsung-unified-linux-driver
     splix
     brlaser
-    brgenml1lpr
-    brgenml1cupswrapper
-    cnijfilter2
+    (lib.mkIf (stdenv.system == "x86_64-linux") brgenml1lpr)
+    (lib.mkIf (stdenv.system == "x86_64-linux") brgenml1cupswrapper)
+    (lib.mkIf (stdenv.system == "x86_64-linux") cnijfilter2)
     epson-escpr2
     epson-escpr
   ];

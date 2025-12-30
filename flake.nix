@@ -65,6 +65,10 @@
     in
     {
       nixosConfigurations = {
+        astra = makeNixosSystem {
+          hostname = "astra";
+          system = "aarch64-linux";
+        };
         celeste = makeNixosSystem {
           hostname = "celeste";
           system = "x86_64-linux";

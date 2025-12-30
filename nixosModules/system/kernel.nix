@@ -5,9 +5,14 @@
   ...
 }:
 {
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+  boot.kernelPackages = lib.mkDefault (
+    if (pkgs.stdenv.system == "x86_64-linux") then
+      pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto
+    else
+      pkgs.linuxKernel.packages.linux_zen
+  );
   # boot.zfs.package = pkgs.zfs_cachyos;
-  services.scx.enable = true; # Use sched_ext
+  services.scx.enable = lib.mkIf (pkgs.stdenv.system == "x86_64-linux") true; # Use sched_ext
   services.scx.scheduler = "scx_lavd";
   # For OBS Studio Virtual Camera: v4l2loopback kernel module
   # Fix: nixpkgs/nixos-unstable v4l2loopback broken on linux 6.18,
