@@ -10,7 +10,7 @@
     ./system/hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.raspberry-pi-4 # nixos-hardware Raspberry Pi 4
 
-    ../../nixosModules/profiles/baseSystem/desktop/gnome
+    ../../nixosModules/profiles/baseSystem/desktop/sway
 
     ../../nixosModules/services/dae.nix
     ../../nixosModules/services/emacs.nix
@@ -21,6 +21,7 @@
 
     ./software/packages.nix
     ./software/misc.nix
+    ./system/wayvnc.nix
     ./system/net.nix
   ];
 

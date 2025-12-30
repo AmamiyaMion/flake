@@ -12,5 +12,6 @@
     libreoffice-fresh
     hunspell
     hunspellDicts.en_US
+    freerdp
   ];
 }
