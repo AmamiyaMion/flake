@@ -279,8 +279,23 @@
     ;; they are implemented.
     (setq confirm-kill-emacs nil)
     (global-display-line-numbers-mode t)
-    ;; (use-package lsp-mode
-    ;;   :ensure t)
+    (use-package nix-mode
+                 :after lsp-mode
+                 :ensure t
+                 :hook
+                  (nix-mode . lsp-deferred) ;; So that envrc mode will work
+                 :custom
+                  (lsp-disabled-clients '((nix-mode . nix-nil))) ;; Disable nil so that nixd will be used as lsp-server
+                 :config
+                  (setq lsp-nix-nixd-server-path "nixd"
+                        lsp-nix-nixd-formatting-command [ "nixfmt" ]
+                        lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"
+                        lsp-nix-nixd-nixos-options-expr "(builtins.getFlake \"/home/nb/nixos\").nixosConfigurations.mnd.options"
+                        lsp-nix-nixd-home-manager-options-expr "(builtins.getFlake \"/home/nb/nixos\").homeConfigurations.\"nb@mnd\".options"))
+    (add-hook! 'nix-mode-hook
+                ;; enable autocompletion with company
+                (setq company-idle-delay 0.1))
+
     (use-package! nasm-mode)
     (setq next-line-add-newlines t)
     (setq require-final-newline t)
