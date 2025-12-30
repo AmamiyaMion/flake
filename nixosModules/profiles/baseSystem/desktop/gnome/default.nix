@@ -17,6 +17,7 @@
   services.gnome.gnome-user-share.enable = true;
   services.gnome.gnome-online-accounts.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
+  services.gnome.gnome-remote-desktop.enable = true;
   programs.seahorse.enable = true;
 
   # GSConnect
