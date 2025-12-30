@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ./system/hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.raspberry-pi-4 # nixos-hardware Raspberry Pi 4
 
     ../../nixosModules/profiles/baseSystem/desktop/gnome
@@ -19,14 +20,12 @@
     ../../nixosModules/desktop/1password.nix
 
     ./software/packages.nix
+    ./software/misc.nix
     ./system/net.nix
   ];
 
   networking.hostName = "astra"; # Define your hostname.
   networking.hostId = "42ccaa24"; # For zfs; Make it random!
-
-  boot.initrd.allowMissingModules = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
 
   # Enable the OpenSSH daemon.
   services.openssh = {
