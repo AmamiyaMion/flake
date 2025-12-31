@@ -25,19 +25,32 @@
   };
 
   outputs =
-    inputs:
+    inputs@{
+      self,
+      flake-utils,
+      nixpkgs,
+      ...
+    }:
     let
+      inherit (nixpkgs) lib;
       secretsPath = ./secrets;
+      modulesFromDirectoryRecursive =
+        _dirPath:
+        lib.packagesFromDirectoryRecursive {
+          callPackage = path: _: import path;
+          directory = _dirPath;
+        };
       makeNixosSystem =
         {
           hostname,
           system,
         }:
-        inputs.nixpkgs.lib.nixosSystem {
+        lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs;
             inherit secretsPath;
+            inherit (self) nixosModules;
           };
           modules = [
             {
@@ -64,6 +77,7 @@
         };
     in
     {
+      nixosModules = modulesFromDirectoryRecursive ./nixosModules;
       nixosConfigurations = {
         astra = makeNixosSystem {
           hostname = "astra";
@@ -79,7 +93,7 @@
         };
       };
     }
-    // inputs.flake-utils.lib.eachDefaultSystem (system: {
+    // flake-utils.lib.eachDefaultSystem (system: {
 
       formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-tree;
 

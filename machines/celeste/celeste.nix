@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  nixosModules,
   ...
 }:
 {
@@ -13,16 +14,16 @@
     inputs.lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
     inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
-    ../../nixosModules/profiles/baseSystem/desktop/gnome
+    nixosModules.profiles.baseSystem.desktop.gnome.default
 
-    ../../nixosModules/services/libvirt.nix
-    ../../nixosModules/services/dae.nix
-    ../../nixosModules/services/emacs.nix
-    ../../nixosModules/services/kmscon.nix
-    ../../nixosModules/services/clash-verge.nix
+    nixosModules.services.libvirt
+    nixosModules.services.dae
+    nixosModules.services.emacs
+    nixosModules.services.kmscon
+    nixosModules.services.clash-verge
 
-    ../../nixosModules/desktop/steam.nix
-    ../../nixosModules/desktop/1password.nix
+    nixosModules.desktop.steam
+    nixosModules.desktop._1password
 
     ./system/nvidia.nix
     ./system/boot.nix

@@ -2,14 +2,15 @@
   config,
   lib,
   pkgs,
+  nixosModules,
   ...
 }:
 {
-  imports = [
-    ../../baseSystem
+  imports = with nixosModules; [
+    profiles.baseSystem.default
 
-    ../../../desktop/fcitx.nix
-    ../../../services/tailscale.nix
+    desktop.fcitx
+    services.tailscale
   ];
 
   # Enable touchpad support (enabled default in most desktopManager).

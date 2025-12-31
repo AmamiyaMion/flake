@@ -2,11 +2,12 @@
   config,
   lib,
   pkgs,
+  nixosModules,
   ...
 }:
 {
-  imports = [
-    ../../desktop
+  imports = with nixosModules.profiles.baseSystem; [
+    desktop.default
   ];
   programs.sway.enable = true;
   programs.sway.wrapperFeatures.gtk = true;

@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  nixosModules,
   ...
 }:
 {
@@ -10,14 +11,14 @@
     ./system/hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.raspberry-pi-4 # nixos-hardware Raspberry Pi 4
 
-    ../../nixosModules/profiles/baseSystem/desktop/sway
+    nixosModules.profiles.baseSystem.desktop.sway.default
 
-    ../../nixosModules/services/dae.nix
-    ../../nixosModules/services/emacs.nix
-    ../../nixosModules/services/kmscon.nix
-    ../../nixosModules/services/clash-verge.nix
+    nixosModules.services.dae
+    nixosModules.services.emacs
+    nixosModules.services.kmscon
+    nixosModules.services.clash-verge
 
-    ../../nixosModules/desktop/1password.nix
+    nixosModules.desktop._1password
 
     ./software/packages.nix
     ./software/misc.nix

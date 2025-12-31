@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  nixosModules,
   ...
 }:
 {
@@ -9,14 +10,14 @@
     # Include the results of the hardware scan.
     ./system/hardware-configuration.nix
 
-    ../../nixosModules/profiles/baseSystem/desktop/sway
+    nixosModules.profiles.baseSystem.desktop.sway.default
 
-    ../../nixosModules/services/dae.nix
-    ../../nixosModules/services/emacs.nix
-    ../../nixosModules/services/kmscon.nix
-    ../../nixosModules/services/clash-verge.nix
+    nixosModules.services.dae
+    nixosModules.services.emacs
+    nixosModules.services.kmscon
+    nixosModules.services.clash-verge
 
-    ../../nixosModules/desktop/1password.nix
+    nixosModules.desktop._1password
 
     ./software/packages.nix
   ];
