@@ -2,38 +2,34 @@
   config,
   lib,
   pkgs,
-  inputs,
   nixosModules,
+  homeModules,
   ...
 }:
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./system/hardware-configuration.nix
+    nixosModules.profiles.baseSystem.desktop.sway.default
 
-    inputs.lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
-    inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
-
-    nixosModules.profiles.baseSystem.desktop.gnome.default
-
-    nixosModules.services.libvirt
     nixosModules.services.dae
     nixosModules.services.emacs
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
 
-    nixosModules.desktop.steam
     nixosModules.desktop._1password
-
-    ./system/nvidia.nix
-    ./system/boot.nix
-
-    ./software/misc.nix
-    ./software/packages.nix
   ];
 
-  networking.hostName = "celeste"; # Define your hostname.
-  networking.hostId = "a12be02d"; # For zfs; Make it random!
+  networking.hostName = "elena"; # Define your hostname.
+  networking.hostId = "ffafeebc"; # For zfs; Make it random!
+
+  mion.systemPackages.office.enable = true;
+  mion.homeManager.modules = with homeModules; [
+    vscode
+    sway
+    flatpak.default
+    obs-studio.default
+    packages.default
+    packages.dev
+  ];
 
   # Enable the OpenSSH daemon.
   services.openssh = {

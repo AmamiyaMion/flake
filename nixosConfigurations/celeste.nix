@@ -2,28 +2,54 @@
   config,
   lib,
   pkgs,
+  inputs,
   nixosModules,
+  homeModules,
   ...
 }:
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./system/hardware-configuration.nix
+    inputs.lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
+    inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
-    nixosModules.profiles.baseSystem.desktop.sway.default
+    nixosModules.profiles.baseSystem.desktop.gnome.default
 
+    nixosModules.services.libvirt
     nixosModules.services.dae
     nixosModules.services.emacs
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
 
+    nixosModules.desktop.steam
     nixosModules.desktop._1password
 
-    ./software/packages.nix
+    nixosModules.hardware.secure-boot
+    nixosModules.hardware.nvidia
+
   ];
 
-  networking.hostName = "elena"; # Define your hostname.
-  networking.hostId = "ffafeebc"; # For zfs; Make it random!
+  networking.hostName = "celeste"; # Define your hostname.
+  networking.hostId = "a12be02d"; # For zfs; Make it random!
+
+  mion.systemPackages.office.enable = true;
+  mion.homeManager.enable = true;
+  mion.homeManager.modules = with homeModules; [
+    vscode
+    flatpak.default
+    flatpak.chatApps
+    flatpak.bottles
+    flatpak.extensionManager
+    flatpak.typora
+    obs-studio.cuda
+    packages.default
+    packages.chatApps
+    packages.dev
+    packages.gnome
+    packages.workstation
+  ];
+
+  # ratbagd (for piper)
+  services.ratbagd.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh = {

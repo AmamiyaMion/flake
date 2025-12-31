@@ -4,11 +4,11 @@
   pkgs,
   inputs,
   nixosModules,
+  homeModules,
   ...
 }:
 {
   imports = [
-    ./system/hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.raspberry-pi-4 # nixos-hardware Raspberry Pi 4
 
     nixosModules.profiles.baseSystem.desktop.sway.default
@@ -20,14 +20,23 @@
 
     nixosModules.desktop._1password
 
-    ./software/packages.nix
-    ./software/misc.nix
-    ./system/wayvnc.nix
-    ./system/net.nix
+    nixosModules.services.wayvnc
   ];
 
   networking.hostName = "astra"; # Define your hostname.
   networking.hostId = "42ccaa24"; # For zfs; Make it random!
+
+  mion.systemPackages.office.enable = true;
+  mion.homeManager.enable = true;
+  mion.homeManager.modules = with homeModules; [
+    sway
+    vscode
+    flatpak.default
+    packages.default
+    packages.dev
+  ];
+
+  services.hardware.argonone.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh = {

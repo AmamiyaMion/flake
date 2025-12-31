@@ -58,7 +58,7 @@ in
         let
           inherit (cfg.config) modifier;
         in
-        builtins.removeAttrs
+        removeAttrs
           (lib.mkOptionDefault {
             "${modifier}+q" = "exec ${cfg.config.terminal}";
             "${modifier}+c" = "kill";

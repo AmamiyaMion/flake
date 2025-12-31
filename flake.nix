@@ -12,8 +12,6 @@
     mion-nur.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    zen-browser.url = "github:youwen5/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.url = "github:nix-community/lanzaboote/master";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
@@ -40,57 +38,48 @@
           callPackage = path: _: import path;
           directory = _dirPath;
         };
-      makeNixosSystem =
-        {
-          hostname,
-          system,
-        }:
-        lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit secretsPath;
-            inherit (self) nixosModules;
-          };
-          modules = [
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
-                  mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
-                  zen-browser = inputs.zen-browser.packages."${prev.stdenv.hostPlatform.system}";
-                })
-                inputs.nix-cachyos-kernel.overlay
-              ];
-            }
-            inputs.sops-nix.nixosModules.sops
-            ./machines/${hostname}/${hostname}.nix
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = ".bak";
-              home-manager.extraSpecialArgs.flake-inputs = inputs;
-              home-manager.users.mion = ./machines/${hostname}/home/home.nix;
-            }
-          ];
-        };
+      globalSpecialArgs = {
+        inherit
+          inputs
+          secretsPath
+          ;
+        inherit (self)
+          nixosModules
+          homeModules
+          ;
+      };
     in
     {
       nixosModules = modulesFromDirectoryRecursive ./nixosModules;
-      nixosConfigurations = {
-        astra = makeNixosSystem {
-          hostname = "astra";
-          system = "aarch64-linux";
-        };
-        celeste = makeNixosSystem {
-          hostname = "celeste";
-          system = "x86_64-linux";
-        };
-        elena = makeNixosSystem {
-          hostname = "elena";
-          system = "x86_64-linux";
-        };
+      homeModules = modulesFromDirectoryRecursive ./homeModules;
+      nixosConfigurations = lib.packagesFromDirectoryRecursive {
+        callPackage =
+          path: _:
+          let
+            hostname = lib.removeSuffix ".nix" (baseNameOf path);
+            system = if hostname == "astra" then "aarch64-linux" else "x86_64-linux";
+          in
+          lib.nixosSystem {
+            specialArgs = globalSpecialArgs // {
+              inherit hostname system;
+            };
+            modules = [
+              path
+              ./hardwares/${hostname}.nix
+              inputs.home-manager.nixosModules.home-manager
+              inputs.sops-nix.nixosModules.sops
+              {
+                nixpkgs.overlays = [
+                  (final: prev: {
+                    nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
+                    mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
+                  })
+                  inputs.nix-cachyos-kernel.overlay
+                ];
+              }
+            ];
+          };
+        directory = ./nixosConfigurations;
       };
     }
     // flake-utils.lib.eachDefaultSystem (system: {

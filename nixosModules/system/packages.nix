@@ -5,7 +5,9 @@
   ...
 }:
 {
-  environment.systemPackages = lib.mkOrder 300 (
+  options.mion.systemPackages.office.enable =
+    lib.mkEnableOption "Enable installation of office packages";
+  config.environment.systemPackages = lib.mkOrder 300 (
     with pkgs;
     [
       tree
@@ -25,5 +27,12 @@
       ripgrep
       iw
     ]
+    ++ (lib.optionals config.mion.systemPackages.office.enable [
+      libreoffice-fresh
+      hunspell
+      hunspellDicts.en_US
+      ispell
+      (lib.mkIf (stdenv.system == "x86_64-linux") (onlyoffice-desktopeditors))
+    ])
   );
 }
