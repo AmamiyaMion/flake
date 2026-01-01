@@ -25,7 +25,8 @@
     brlaser
     (lib.mkIf (stdenv.system == "x86_64-linux") brgenml1lpr)
     (lib.mkIf (stdenv.system == "x86_64-linux") brgenml1cupswrapper)
-    (lib.mkIf (stdenv.system == "x86_64-linux") cnijfilter2)
+    # (lib.mkIf (stdenv.system == "x86_64-linux") cnijfilter2)
+    # FIXME: build failure
     epson-escpr2
     epson-escpr
   ];

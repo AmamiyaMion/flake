@@ -32,7 +32,6 @@
       hunspell
       hunspellDicts.en_US
       ispell
-      (lib.mkIf (stdenv.system == "x86_64-linux") (onlyoffice-desktopeditors))
     ])
   );
 }
