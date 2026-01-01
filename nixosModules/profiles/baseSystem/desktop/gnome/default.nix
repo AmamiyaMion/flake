@@ -31,6 +31,9 @@
     with pkgs;
     [
       gtop # for GNOME Shell Plugin
+      adw-gtk3
+      gnome-software
+      gnome-tweaks
     ]
   );
 }

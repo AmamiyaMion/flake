@@ -44,7 +44,6 @@
     packages.default
     packages.chatApps
     packages.dev
-    packages.gnome
     packages.workstation
   ];
 
