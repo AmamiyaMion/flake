@@ -100,6 +100,8 @@
             openssl
             sops
             age
+            ssh-to-age
+            openssh
           ];
           EDITOR = "emacs -nw";
         };
