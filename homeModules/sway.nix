@@ -99,10 +99,10 @@ in
     slurp
     grim
     kitty
-    xfce.thunar
+    thunar
     vlc
-    xfce.catfish
-    xfce.ristretto
+    catfish
+    ristretto
   ];
 
   services.gnome-keyring.enable = true;

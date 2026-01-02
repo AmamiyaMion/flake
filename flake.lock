@@ -227,11 +227,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765554380,
-        "narHash": "sha256-LkaKOScq6qGLUe9tUBAvDZxWKrtl663mDT/kAXarA/s=",
+        "lastModified": 1767339002,
+        "narHash": "sha256-2sods9Gx1uFPHwWPMLkUbKc3kqN12SKL25yJEHVXuyw=",
         "owner": "AmamiyaMion",
         "repo": "nur",
-        "rev": "f1089e8c7eed5d57a284931c4e28ef2e7969404a",
+        "rev": "48ec4efa7935b2b4ee558d6fb7e3597c8dfe72c1",
         "type": "github"
       },
       "original": {
@@ -251,11 +251,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767203213,
-        "narHash": "sha256-0u8VxVXaO8GK36kivI6Yiveoh2CldUB9DbuqteKlSkk=",
+        "lastModified": 1767289668,
+        "narHash": "sha256-RxF4MseBOKnTsXItYxlaiHWTSSBXQC16xy2Ty54oQic=",
         "owner": "xddxdd",
         "repo": "nix-cachyos-kernel",
-        "rev": "6db33588aa602a287804379fd27b874bd065dd27",
+        "rev": "a756f0662fbdcbdac8addc2f48313d911b362215",
         "type": "github"
       },
       "original": {
@@ -370,11 +370,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767251724,
-        "narHash": "sha256-AOs/vBNVc3NEZDj5U2hpMFLd59x7VY4urmPiIaHkL5I=",
+        "lastModified": 1767337236,
+        "narHash": "sha256-1OfQw2raF1ymTqgwNcBZFTE3GNDPvoLxkgNzGNa8EI0=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "ee2e3390f446320911e853361b4c99ac9cefb8e2",
+        "rev": "ef97df6f202c3e74b4720f0e5cff55344fc105a3",
         "type": "github"
       },
       "original": {

@@ -37,7 +37,7 @@
   ];
 
   services.hardware.argonone.enable = true;
-
+  services.hardware.argonone.package = pkgs.mion-nur.argononed;
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
