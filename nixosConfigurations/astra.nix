@@ -17,6 +17,7 @@
     nixosModules.services.emacs
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
+    nixosModules.services.docker
 
     nixosModules.desktop._1password
 
