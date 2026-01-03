@@ -35,6 +35,7 @@
       pnpm
       nodejs
       github-desktop
+      arduino-ide
     ]
   );
 }

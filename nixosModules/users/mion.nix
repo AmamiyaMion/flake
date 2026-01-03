@@ -27,6 +27,7 @@ in
         "wheel"
         "kvm"
         "adbusers"
+        "dialout"
       ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
