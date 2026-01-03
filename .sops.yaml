@@ -1,13 +1,23 @@
-keys:
-  - &mion age1d772tlun76x7j7qh4fwxlnh84ch4tlyls36ty3dmdrsr90knn9mqnwstdz
-  - &celeste age176pg92tm8zkpx9tgyfwstcjzet8quklynqwynm4y8425kdlavfaqmjuzfn
-  - &astra age1q9c0hxv3amg2eev8vu3ze783zz0v8wl5cvfuhrc3ej6x8s9qh4fsvtwfp2
-  - &elena age14zdgkzt225gnt868rvcyq7mnl5urgcvwjdx0p2yn6hhtyhn8kuqshe4zzn
-creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
-    key_groups:
-    - age:
-      - *mion
-      - *celeste
-      - *astra
-      - *elena
+{
+  "keys": [
+    "age1d772tlun76x7j7qh4fwxlnh84ch4tlyls36ty3dmdrsr90knn9mqnwstdz",
+    "age176pg92tm8zkpx9tgyfwstcjzet8quklynqwynm4y8425kdlavfaqmjuzfn",
+    "age1q9c0hxv3amg2eev8vu3ze783zz0v8wl5cvfuhrc3ej6x8s9qh4fsvtwfp2",
+    "age14zdgkzt225gnt868rvcyq7mnl5urgcvwjdx0p2yn6hhtyhn8kuqshe4zzn"
+  ],
+  "creation_rules": [
+    {
+      "path_regex": "secrets/[^/]+\\.(yaml|json|env|ini)$",
+      "key_groups": [
+        {
+          "age": [
+            "age1d772tlun76x7j7qh4fwxlnh84ch4tlyls36ty3dmdrsr90knn9mqnwstdz",
+            "age176pg92tm8zkpx9tgyfwstcjzet8quklynqwynm4y8425kdlavfaqmjuzfn",
+            "age1q9c0hxv3amg2eev8vu3ze783zz0v8wl5cvfuhrc3ej6x8s9qh4fsvtwfp2",
+            "age14zdgkzt225gnt868rvcyq7mnl5urgcvwjdx0p2yn6hhtyhn8kuqshe4zzn"
+          ]
+        }
+      ]
+    }
+  ]
+}
