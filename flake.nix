@@ -16,8 +16,6 @@
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
-    nix-cachyos-kernel.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -74,7 +72,6 @@
                     nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
                     mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
                   })
-                  inputs.nix-cachyos-kernel.overlay
                 ];
               }
             ];
