@@ -26,4 +26,8 @@
   # Enable nix-index
   programs.nix-index.enable = true;
   programs.nix-index-database.comma.enable = true;
+
+  programs.television.enable = true;
+  programs.nix-search-tv.enable = true;
+  programs.nix-search-tv.enableTelevisionIntegration = true;
 }
