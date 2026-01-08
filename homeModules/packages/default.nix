@@ -12,7 +12,7 @@
       (lib.mkIf (stdenv.system == "x86_64-linux") microsoft-edge)
       fastfetch
       hyfetch
-      nixfmt-rfc-style
+      nixfmt
       nixd
       file
       ffmpeg

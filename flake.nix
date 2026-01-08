@@ -91,7 +91,7 @@
           name = "Amamiya Mion's Nix dev shell";
           buildInputs = with pkgs; [
             nixd
-            nixfmt-rfc-style
+            nixfmt
             nh
             just
             openssl

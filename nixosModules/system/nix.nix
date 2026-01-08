@@ -29,9 +29,7 @@
   # Mirror
   nix.settings.substituters = [
     "https://mirror.sjtu.edu.cn/nix-channels/store"
-    "https://attic.xuyh0120.win/lantian"
   ];
-  nix.settings.trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
 
   # Allow non-free software
   nixpkgs.config.allowUnfree = true;
