@@ -5,7 +5,7 @@
   ...
 }:
 {
-  boot.kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_xanmod_latest;
   # boot.zfs.package = pkgs.zfs_cachyos;
   services.scx.enable = lib.mkIf (pkgs.stdenv.system == "x86_64-linux") true; # Use sched_ext
   services.scx.scheduler = "scx_lavd";
