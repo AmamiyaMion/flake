@@ -16,8 +16,18 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  # Enable power-profiles-daemon
-  services.power-profiles-daemon.enable = true;
+  # Enable `tlp` for power management
+  services.power-profiles-daemon.enable = false;
+  services.tlp = {
+    enable = true;
+    pd.enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+    };
+  };
 
   # Enable sound.
   # services.pulseaudio.enable = true;
