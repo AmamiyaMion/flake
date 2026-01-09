@@ -43,4 +43,12 @@
       selection-foreground = "cdd6f4";
     };
   };
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "ghostty.desktop"
+      ];
+    };
+  };
 }

@@ -20,11 +20,26 @@
   services.gnome.gnome-browser-connector.enable = true;
   services.gnome.gnome-remote-desktop.enable = true;
   programs.seahorse.enable = true;
+  services.gnome.sushi.enable = true;
 
   # GSConnect
   programs.kdeconnect = {
     enable = true;
     package = pkgs.gnomeExtensions.gsconnect;
+  };
+
+  # Use ghostty by default
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "ghostty";
+  };
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "ghostty.desktop"
+      ];
+    };
   };
 
   environment.systemPackages = lib.mkOrder 800 (
@@ -34,6 +49,7 @@
       adw-gtk3
       gnome-software
       gnome-tweaks
+      ghostty
     ]
   );
 }
