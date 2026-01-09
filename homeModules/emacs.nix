@@ -12,17 +12,17 @@
         owner = "doomemacs";
         repo = "doomemacs";
         # Remember to update this qwq;
-        rev = "38d94da67dc84897a4318714dcc48494c016d8c4";
-        sha256 = "sha256-Uc6qONH3jjUVDgW+pPBCGC7mh88ZY05u1y37fQrsxq0=";
+        rev = "3e15fb36d7f94f0a218bda977be4d3f5da983a71";
+        hash = "sha256-QL/t9v2kFNxBDyNJb/s411o3mxujan+QX5IZglTdpTk=";
       };
       onChange = ''
-                export PATH="${pkgs.git}/bin:${pkgs.emacs}/bin:$PATH"
-        	export DOOMLOCALDIR="${config.home.sessionVariables.DOOMLOCALDIR}"
-                if [ ! -d $DOOMLOCALDIR ]; then
-                  ${config.xdg.configHome}/emacs/bin/doom install --env -!
-                else
-                  ${config.xdg.configHome}/emacs/bin/doom sync
-                fi
+        export PATH="${pkgs.git}/bin:${pkgs.emacs}/bin:$PATH"
+        export DOOMLOCALDIR="${config.home.sessionVariables.DOOMLOCALDIR}"
+        if [ ! -d $DOOMLOCALDIR ]; then
+            ${config.xdg.configHome}/emacs/bin/doom install --env -!
+        else
+            ${config.xdg.configHome}/emacs/bin/doom sync
+        fi
       '';
     };
     "doom/init.el".text = ''
@@ -327,7 +327,7 @@
                           :major-modes '(nix-mode)
                           :priority 0
                           :server-id 'nixd)))
-
+      (setq doom-theme 'catppuccin)
     '';
     "doom/packages.el".text = ''
       ;; -*- no-byte-compile: t; -*-
@@ -388,7 +388,7 @@
       ;;   (:host github
       ;;    :repo "OpenSauce04/portage-modes"
       ;;    :files ("*.el")))
-
+      (package! catppuccin-theme)
     '';
   };
 }
