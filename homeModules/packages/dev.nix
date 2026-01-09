@@ -35,7 +35,7 @@
       pnpm
       nodejs
       github-desktop
-      arduino-ide
+      (lib.mkIf (pkgs.stdenv.system == "x86_64-linux") arduino-ide)
     ]
   );
 }
