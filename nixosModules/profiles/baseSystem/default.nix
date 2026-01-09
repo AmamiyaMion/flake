@@ -9,6 +9,7 @@
   imports = with nixosModules; [
     system.binary-compatibility
     system.bluetooth
+    system.boot
     system.cups
     system.fonts
     system.kernel

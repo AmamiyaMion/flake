@@ -9,7 +9,6 @@
 }:
 {
   imports = [
-    inputs.lanzaboote.nixosModules.lanzaboote # lanzaboote (Secure Boot)
     inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
     nixosModules.profiles.baseSystem.desktop.gnome.default
@@ -23,14 +22,14 @@
     nixosModules.desktop.steam
     nixosModules.desktop._1password
 
-    nixosModules.hardware.secure-boot
     nixosModules.hardware.nvidia
-
   ];
 
   networking.hostName = "celeste"; # Define your hostname.
   networking.hostId = "a12be02d"; # For zfs; Make it random!
 
+  mion.bootloader.limine.enable = true;
+  mion.bootloader.limine.secureBoot.enable = true;
   mion.systemPackages.office.enable = true;
   mion.homeManager.enable = true;
   mion.homeManager.modules = with homeModules; [

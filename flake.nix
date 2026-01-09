@@ -12,8 +12,6 @@
     mion-nur.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    lanzaboote.url = "github:nix-community/lanzaboote/master";
-    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -29,6 +27,7 @@
     }:
     let
       inherit (nixpkgs) lib;
+      assetsPath = ./assets;
       secretsPath = ./secrets;
       modulesFromDirectoryRecursive =
         _dirPath:
@@ -40,6 +39,7 @@
         inherit
           inputs
           secretsPath
+          assetsPath
           ;
         inherit (self)
           nixosModules

@@ -21,6 +21,7 @@
   networking.hostName = "elena"; # Define your hostname.
   networking.hostId = "ffafeebc"; # For zfs; Make it random!
 
+  mion.bootloader.systemd-boot.enable = true;
   mion.systemPackages.office.enable = true;
   mion.homeManager.enable = true;
   mion.homeManager.modules = with homeModules; [
