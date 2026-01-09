@@ -5,6 +5,11 @@
   ...
 }:
 {
+  home.shell = {
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
   programs.bash = {
     enable = true;
     shellAliases = {
