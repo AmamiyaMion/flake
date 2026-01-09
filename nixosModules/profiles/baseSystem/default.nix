@@ -17,6 +17,5 @@
     system.secrets
     system.tzlocale
     system.packages
-    users.mion
   ];
 }

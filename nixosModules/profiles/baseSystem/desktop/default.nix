@@ -11,6 +11,7 @@
 
     desktop.fcitx
     services.tailscale
+    users.mion
   ];
 
   # Enable touchpad support (enabled default in most desktopManager).
