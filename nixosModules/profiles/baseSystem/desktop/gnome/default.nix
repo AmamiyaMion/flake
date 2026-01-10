@@ -50,6 +50,10 @@
       gnome-software
       gnome-tweaks
       ghostty
+      qadwaitadecorations-qt6
     ]
   );
+  environment.variables = {
+    QT_WAYLAND_DECORATION = "adwaita";
+  };
 }
