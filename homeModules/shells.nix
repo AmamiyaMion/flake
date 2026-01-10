@@ -42,6 +42,7 @@
     history.ignoreAllDups = true;
     history.path = "$HOME/.zsh_history";
     shellAliases = {
+      ls = "eza";
       ll = "ls -l";
       l = "ls -l";
       la = "ls -la";

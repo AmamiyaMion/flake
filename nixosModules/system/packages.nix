@@ -31,6 +31,7 @@
       sequoia-sqop
       sequoia-sqv
       sequoia-wot
+      eza
     ]
     ++ (lib.optionals config.mion.systemPackages.office.enable [
       libreoffice-fresh
