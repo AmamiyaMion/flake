@@ -63,6 +63,7 @@
       xclip
       wl-clipboard
       android-tools
+      kdePackages.kleopatra
     ]
   );
 }

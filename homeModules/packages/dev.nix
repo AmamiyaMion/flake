@@ -36,6 +36,7 @@
       nodejs
       github-desktop
       (lib.mkIf (pkgs.stdenv.system == "x86_64-linux") arduino-ide)
+      pius
     ]
   );
 }
