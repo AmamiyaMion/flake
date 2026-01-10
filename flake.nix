@@ -32,7 +32,7 @@
       modulesFromDirectoryRecursive =
         _dirPath:
         lib.packagesFromDirectoryRecursive {
-          callPackage = path: _: import path;
+          callPackage = _path: _: import _path;
           directory = _dirPath;
         };
       globalSpecialArgs = {
@@ -52,9 +52,9 @@
       homeModules = modulesFromDirectoryRecursive ./homeModules;
       nixosConfigurations = lib.packagesFromDirectoryRecursive {
         callPackage =
-          path: _:
+          _path: _:
           let
-            hostname = lib.removeSuffix ".nix" (baseNameOf path);
+            hostname = lib.removeSuffix ".nix" (baseNameOf _path);
             system = if hostname == "astra" then "aarch64-linux" else "x86_64-linux";
           in
           lib.nixosSystem {
@@ -62,7 +62,7 @@
               inherit hostname system;
             };
             modules = [
-              path
+              _path
               ./hardwares/${hostname}.nix
               inputs.home-manager.nixosModules.home-manager
               inputs.sops-nix.nixosModules.sops
