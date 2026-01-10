@@ -56,7 +56,7 @@ in
       };
       useGlobalPkgs = true;
       useUserPackages = true;
-      backupFileExtension = "bak";
+      backupFileExtension = "home-manager-backup";
       extraSpecialArgs = {
         inherit (osSpecialArgs)
           inputs
