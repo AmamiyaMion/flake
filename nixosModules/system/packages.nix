@@ -26,6 +26,11 @@
       lshw
       ripgrep
       iw
+      sequoia-chameleon-gnupg
+      sequoia-sq
+      sequoia-sqop
+      sequoia-sqv
+      sequoia-wot
     ]
     ++ (lib.optionals config.mion.systemPackages.office.enable [
       libreoffice-fresh
