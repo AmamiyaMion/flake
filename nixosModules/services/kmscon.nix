@@ -5,6 +5,15 @@
   ...
 }:
 {
-  services.kmscon.enable = true;
-  services.kmscon.hwRender = true;
+  services.kmscon = {
+    enable = true;
+    hwRender = true;
+    useXkbConfig = true;
+    fonts = [
+      {
+        name = "Maple Mono Normal NF CN";
+        package = pkgs.maple-mono.Normal-NF-CN;
+      }
+    ];
+  };
 }
