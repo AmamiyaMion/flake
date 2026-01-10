@@ -68,10 +68,10 @@ in
             "${modifier}+Alt+l" = "exec swaylock";
             "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
             "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
-            "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_SINK@ toggle";
-            "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 1.0";
-            "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 5%- --limit 1.0";
-            "XF86AudioMicMute" = "exec wpctl set-mute @DEFAULT_SOURCE@ toggle";
+            "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+            "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
+            "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
+            "XF86AudioMicMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
           })
           [
             "${modifier}+Return"
