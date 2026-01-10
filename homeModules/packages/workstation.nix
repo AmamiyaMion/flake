@@ -9,6 +9,7 @@
     with pkgs;
     [
       cider-2
+      foliate
       piper
       darktable
       davinci-resolve
