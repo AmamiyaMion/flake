@@ -16,6 +16,8 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -83,23 +85,36 @@
 
       formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
+      checks = {
+        pre-commit-check = inputs.git-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            nixfmt.enable = true;
+          };
+        };
+      };
+
       devShells.default =
         let
           inherit (inputs.nixpkgs.legacyPackages.${system}) pkgs;
+          inherit (self.checks.${system}.pre-commit-check) shellHook enabledPackages;
         in
         pkgs.mkShell {
           name = "Amamiya Mion's Nix dev shell";
-          buildInputs = with pkgs; [
-            nixd
-            nixfmt
-            nh
-            just
-            openssl
-            sops
-            age
-            ssh-to-age
-            openssh
-          ];
+          buildInputs =
+            (with pkgs; [
+              nixd
+              nixfmt
+              nh
+              just
+              openssl
+              sops
+              age
+              ssh-to-age
+              openssh
+            ])
+            ++ enabledPackages;
+          inherit shellHook;
           EDITOR = "emacs -nw";
         };
     });
