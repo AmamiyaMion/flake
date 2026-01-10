@@ -38,17 +38,10 @@ in
     programs.zsh.enable = true;
     environment.shells = with pkgs; [ zsh ];
 
-    # Disable sudo. We use doas.
-    security.doas.enable = true;
+    # Disable sudo. We use sudo-rs.
     security.sudo.enable = false;
-    security.doas.extraRules = [
-      {
-        users = [ username ];
-        keepEnv = true;
-        noPass = true;
-      }
-    ];
-    environment.systemPackages = lib.mkOrder 100 [ pkgs.doas-sudo-shim ];
+    security.sudo-rs.enable = true;
+    security.sudo-rs.wheelNeedsPassword = false;
 
     home-manager = lib.mkIf config.mion.homeManager.enable {
       users."${username}" = {
