@@ -33,6 +33,7 @@ in
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrG7IrNH5u3LKXA/W9W/2yV+/lGXT9Ejl8FOhB28lus"
       ];
+      initialHashedPassword = "$y$j9T$Vsin.O/77yAEFX9TtN.iB.$yHa.h5gxC0NP5NXBrZ3Ivhhf79NeHA2j/.9xM4MGSX8";
     };
     # for using zsh as shell
     programs.zsh.enable = true;
