@@ -16,7 +16,7 @@
       clang
       cmake
       uv
-      python313Packages.python-lsp-server
+      python3Packages.python-lsp-server
       rust-analyzer
       clang-tools
       guile
