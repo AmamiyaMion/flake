@@ -55,7 +55,7 @@ in
           natural_scroll = "enabled";
         };
         "type:keyboard" = {
-          xkb_options = ''"swap_lwin_lctl"'';
+          xkb_options = ''"ctrl:swap_lwin_lctl"'';
         };
       };
       keybindings =
