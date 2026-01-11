@@ -60,6 +60,7 @@ in
       extraSpecialArgs = {
         inherit (osSpecialArgs)
           inputs
+          assetsPath
           system
           ;
         inherit username;
