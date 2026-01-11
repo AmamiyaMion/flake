@@ -51,6 +51,8 @@
       gnome-tweaks
       ghostty
       qadwaitadecorations-qt6
+      file-roller
+      papers
     ]
   );
   environment.variables = {

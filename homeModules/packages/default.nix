@@ -18,8 +18,6 @@
       ffmpeg
       imagemagick
       emacs
-      papers
-      file-roller
     ]
   );
 

@@ -28,6 +28,8 @@
       grim
       slurp
       wl-clipboard
+      papers
+      file-roller
     ]
   );
   services.greetd = {
