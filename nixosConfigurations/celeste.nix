@@ -43,6 +43,7 @@
     packages.chatApps
     packages.dev
     packages.workstation
+    packages.games
   ];
 
   # ratbagd (for piper)
