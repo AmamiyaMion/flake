@@ -21,8 +21,6 @@
 
     nixosModules.desktop.steam
     nixosModules.desktop._1password
-
-    nixosModules.hardware.nvidia
   ];
 
   networking.hostName = "celeste"; # Define your hostname.

@@ -44,7 +44,6 @@
   swapDevices = [
     { device = "/dev/mapper/cryptdsk-SWAP"; }
   ];
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
@@ -71,4 +70,7 @@
     # Set power scheme for performance (iwlmvm)
     options iwlmvm power_scheme=1
   '';
+  environment.systemPackages = lib.mkOrder 699 [ pkgs.amdgpu_top ];
+  hardware.graphics.enable = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 }
