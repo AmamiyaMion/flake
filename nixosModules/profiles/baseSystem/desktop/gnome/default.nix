@@ -19,6 +19,7 @@
   services.gnome.gnome-online-accounts.enable = true;
   services.gnome.gnome-browser-connector.enable = true;
   services.gnome.gnome-remote-desktop.enable = true;
+  services.gnome.gnome-software.enable = true;
   programs.seahorse.enable = true;
   services.gnome.sushi.enable = true;
 
@@ -43,17 +44,39 @@
   };
 
   environment.systemPackages = lib.mkOrder 800 (
-    with pkgs;
-    [
-      gtop # for GNOME Shell Plugin
+    (with pkgs; [
+      # for GNOME Shell Plugin
+      gtop
+      lm_sensors
+
       adw-gtk3
-      gnome-software
+      mission-center
       gnome-tweaks
       ghostty
       qadwaitadecorations-qt6
       file-roller
       papers
-    ]
+    ])
+    ++ (with pkgs.gnomeExtensions; [
+      appindicator
+      astra-monitor
+      auto-adwaita-colors
+      blur-my-shell
+      caffeine
+      clipboard-indicator
+      coverflow-alt-tab
+      dash-to-dock
+      fuzzy-app-search
+      gsconnect
+      kimpanel
+      light-style
+      removable-drive-menu
+      rounded-window-corners-reborn
+      system-monitor
+      transparent-window-moving
+      user-avatar-in-quick-settings
+      user-themes
+    ])
   );
   environment.variables = {
     QT_WAYLAND_DECORATION = "adwaita";
