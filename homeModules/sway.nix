@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  assetsPath,
   ...
 }:
 let
@@ -58,6 +59,11 @@ in
           xkb_options = ''"ctrl:swap_lwin_lctl"'';
         };
       };
+      output = {
+        "*" = {
+          bg = "${assetsPath}/nix-wallpaper-nineish-pink.png fill";
+        };
+      };
       keybindings =
         let
           inherit (cfg.config) modifier;
@@ -69,7 +75,8 @@ in
             "${modifier}+space" = "exec ${cfg.config.menu}";
             "${modifier}+Alt+Space" = "focus mode_toggle";
             "${modifier}+Shift+s" = ''exec sh -c "slurp | grim -g - - | wl-copy"'';
-            "${modifier}+Alt+l" = "exec swaylock";
+            "${modifier}+Alt+l" =
+              "exec swaylock -l --ignore-empty-password --show-failed-attempts -c f5a9b8 -i ${assetsPath}/nix-wallpaper-nineish-pink.png";
             "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
             "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
             "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
@@ -90,6 +97,15 @@ in
         { command = "clash-verge"; }
         { command = "mako"; }
         { command = "1password"; }
+        {
+          command = ''
+            swayidle -w \
+              timeout 900 \
+                'swaylock -l --ignore-empty-password --show-failed-attempts -c f5a9b8 -i ${assetsPath}/nix-wallpaper-nineish-pink.png && swaymsg "output * power off"' \
+              resume 'swaymsg "output * power on"'
+          '';
+          always = true;
+        }
       ];
     };
   };
@@ -98,6 +114,7 @@ in
     brightnessctl
     swayidle
     swaylock
+    swaybg
     wl-clipboard
     waybar
     slurp
