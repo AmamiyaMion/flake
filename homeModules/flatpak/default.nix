@@ -17,7 +17,6 @@
     };
     packages = lib.mkOrder 100 [
       "com.github.tchx84.Flatseal"
-      "com.gopeed.Gopeed"
       "org.localsend.localsend_app"
     ];
     overrides = {

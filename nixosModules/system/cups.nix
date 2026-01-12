@@ -25,7 +25,7 @@
     brlaser
     (lib.mkIf (stdenv.system == "x86_64-linux") brgenml1lpr)
     (lib.mkIf (stdenv.system == "x86_64-linux") brgenml1cupswrapper)
-    (lib.mkIf (stdenv.system == "x86_64-linux") mion-nur.cnijfilter2)
+    (lib.mkIf (stdenv.system == "x86_64-linux") cnijfilter2)
     epson-escpr2
     epson-escpr
   ];

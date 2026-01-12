@@ -18,6 +18,7 @@
       ffmpeg
       imagemagick
       emacs
+      qbittorrent-enhanced
     ]
   );
 
