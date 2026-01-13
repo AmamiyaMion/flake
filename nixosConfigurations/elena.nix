@@ -27,6 +27,7 @@
   mion.homeManager.modules = with homeModules; [
     vscode
     sway
+    emacs
     flatpak.default
     obs-studio.default
     packages.default

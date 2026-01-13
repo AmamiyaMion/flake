@@ -33,6 +33,7 @@
   mion.homeManager.modules = with homeModules; [
     vscode
     ghostty
+    emacs
     flatpak.default
     flatpak.chatApps
     flatpak.bottles

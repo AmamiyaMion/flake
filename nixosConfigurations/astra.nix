@@ -32,6 +32,7 @@
   mion.homeManager.modules = with homeModules; [
     sway
     vscode
+    emacs
     flatpak.default
     packages.default
     packages.dev
