@@ -22,6 +22,8 @@
         firefox
         zen
         zen-bin
+        floorp
+        floorp-bin
       '';
       mode = "0755";
     };

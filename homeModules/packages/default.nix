@@ -9,7 +9,7 @@
     with pkgs;
     [
       (if (stdenv.system == "x86_64-linux") then google-chrome else chromium)
-      (lib.mkIf (stdenv.system == "x86_64-linux") microsoft-edge)
+      floorp-bin
       fastfetch
       hyfetch
       nixfmt
