@@ -15,6 +15,8 @@
       davinci-resolve
       gimp
       inkscape
+      kdePackages.kdenlive
+      krita
     ]
   );
 }
