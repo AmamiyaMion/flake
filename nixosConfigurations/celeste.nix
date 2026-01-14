@@ -11,7 +11,7 @@
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
-    nixosModules.profiles.baseSystem.desktop.gnome.default
+    nixosModules.profiles.baseSystem.desktop.plasma.default
 
     nixosModules.services.libvirt
     nixosModules.services.dae
