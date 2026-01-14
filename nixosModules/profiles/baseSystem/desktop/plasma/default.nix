@@ -26,6 +26,8 @@
       kdePackages.kmail
       kdePackages.kmail-account-wizard
       kdePackages.kmailtransport
+      kdePackages.kamoso
+      kdePackages.sddm-kcm
       vlc
     ]
   );
