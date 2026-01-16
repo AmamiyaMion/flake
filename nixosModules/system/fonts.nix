@@ -15,6 +15,7 @@
     fira-code-symbols
     maple-mono.Normal-NF
     mion-nur.plangothic
+    inter
   ];
   fonts.fontconfig = {
     antialias = true;
@@ -22,7 +23,10 @@
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [ "Maple Mono Normal NF" ];
-      sansSerif = [ "Noto Sans CJK SC" ];
+      sansSerif = [
+        "Inter"
+        "Noto Sans CJK SC"
+      ];
       serif = [ "Noto Serif CJK SC" ];
     };
   };
