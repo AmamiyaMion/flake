@@ -14,7 +14,7 @@ in
     mion.homeManager = {
       enable = lib.mkEnableOption "Enable home-manager for Mion.";
       modules = lib.mkOption {
-        default = [ ];
+        default = [ homeModules.base ];
         description = "Extra modules for home-manager";
       };
     };
@@ -46,10 +46,7 @@ in
 
     home-manager = lib.mkIf config.mion.homeManager.enable {
       users."${username}" = {
-        imports = [
-          homeModules.base
-        ]
-        ++ config.mion.homeManager.modules;
+        imports = config.mion.homeManager.modules;
         home.username = username;
         home.homeDirectory = "/home/${username}";
         home.stateVersion = "25.05";

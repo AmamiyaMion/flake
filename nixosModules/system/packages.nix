@@ -21,6 +21,8 @@
       htop
       btop
       vim
+      neovim
+      helix
       wget
       micro
       lshw

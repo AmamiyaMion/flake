@@ -30,6 +30,7 @@
   mion.systemPackages.office.enable = true;
   mion.homeManager.enable = true;
   mion.homeManager.modules = with homeModules; [
+    base
     sway
     vscode
     emacs
