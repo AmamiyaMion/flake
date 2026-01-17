@@ -12,9 +12,6 @@
 
   programs.bash = {
     enable = true;
-    shellAliases = {
-      edit = "emacs -nw";
-    };
   };
 
   programs.starship = {
@@ -46,7 +43,6 @@
       ll = "ls -l";
       l = "ls -l";
       la = "ls -la";
-      edit = "emacs -nw";
       cd = "z";
     };
     autocd = true;

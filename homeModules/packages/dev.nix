@@ -16,9 +16,13 @@
       clang
       cmake
       uv
-      python3Packages.python-lsp-server
+      python3
+      luarocks
+      lua
+      lua-language-server
       rust-analyzer
       clang-tools
+      tree-sitter
       guile
       xmake
       just
@@ -31,12 +35,12 @@
       android-tools
       gh
       go
-      yarn
       pnpm
       nodejs
       github-desktop
       (lib.mkIf (pkgs.stdenv.system == "x86_64-linux") arduino-ide)
       pius
+      neovide
     ]
   );
 }

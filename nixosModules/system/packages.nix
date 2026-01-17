@@ -20,7 +20,6 @@
       iotop
       htop
       btop
-      vim
       neovim
       helix
       wget

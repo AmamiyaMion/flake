@@ -14,7 +14,6 @@
     nixosModules.profiles.baseSystem.desktop.sway.default
 
     nixosModules.services.dae
-    nixosModules.services.emacs
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
     nixosModules.services.docker

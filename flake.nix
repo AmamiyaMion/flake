@@ -112,10 +112,11 @@
               age
               ssh-to-age
               openssh
+              neovim
             ])
             ++ enabledPackages;
           inherit shellHook;
-          EDITOR = "emacs -nw";
+          EDITOR = "nvim";
         };
     });
 }

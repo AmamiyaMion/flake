@@ -15,7 +15,6 @@
 
     nixosModules.services.libvirt
     nixosModules.services.dae
-    nixosModules.services.emacs
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
 
