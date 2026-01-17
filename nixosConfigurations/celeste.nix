@@ -40,6 +40,7 @@
     flatpak.bottles
     flatpak.extensionManager
     flatpak.typora
+    obs-studio.default
     obs-studio.cuda
     packages.default
     packages.chatApps
