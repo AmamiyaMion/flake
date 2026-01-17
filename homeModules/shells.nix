@@ -32,6 +32,7 @@
           romkatv/powerlevel10k
           amyreese/zsh-titles
           zsh-users/zsh-syntax-highlighting
+          jeffreytse/zsh-vi-mode
         ''
       ];
     };
