@@ -28,6 +28,7 @@
       kdePackages.kmailtransport
       kdePackages.kamoso
       kdePackages.sddm-kcm
+      kdePackages.krdc
       vlc
     ]
   );
