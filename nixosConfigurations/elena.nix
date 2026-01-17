@@ -28,7 +28,7 @@
     base
     vscode
     sway
-    emacs
+    helix
     flatpak.default
     obs-studio.default
     packages.default

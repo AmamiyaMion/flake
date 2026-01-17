@@ -33,7 +33,7 @@
     base
     sway
     vscode
-    emacs
+    helix
     flatpak.default
     packages.default
     packages.dev

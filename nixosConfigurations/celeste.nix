@@ -32,6 +32,7 @@
   mion.homeManager.enable = true;
   mion.homeManager.modules = with homeModules; [
     base
+    helix
     vscode
     ghostty
     emacs
