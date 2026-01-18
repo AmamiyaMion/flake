@@ -15,6 +15,8 @@
   services.gnome.gnome-keyring.enable = true; # secret service
   security.pam.services.swaylock = { };
 
+  services.blueman.enable = true;
+  services.acpid.enable = true;
   programs.waybar.enable = true; # top bar
   environment.systemPackages = lib.mkOrder 650 (
     with pkgs;
