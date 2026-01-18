@@ -31,6 +31,7 @@
   mion.homeManager.modules = with homeModules; [
     base
     sway
+    ghostty
     vscode
     helix
     flatpak.default

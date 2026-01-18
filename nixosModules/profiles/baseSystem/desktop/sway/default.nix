@@ -19,7 +19,7 @@
   environment.systemPackages = lib.mkOrder 650 (
     with pkgs;
     [
-      kitty
+      ghostty
       rofi
       swaylock
       mako

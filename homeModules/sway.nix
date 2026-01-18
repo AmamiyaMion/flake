@@ -9,6 +9,9 @@ let
   cfg = config.wayland.windowManager.sway;
 in
 {
+  imports = [
+    ./ghostty.nix
+  ];
   gtk = {
     enable = true;
     theme = {
@@ -42,7 +45,7 @@ in
         style = "Retina";
         size = 10.0;
       };
-      terminal = "kitty";
+      terminal = "ghostty";
       menu = "rofi -show drun";
       gaps.smartBorders = "on";
       workspaceAutoBackAndForth = true;
@@ -119,7 +122,7 @@ in
     waybar
     slurp
     grim
-    kitty
+    ghostty
     thunar
     vlc
     catfish

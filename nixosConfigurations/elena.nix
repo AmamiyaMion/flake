@@ -27,6 +27,7 @@
     base
     vscode
     sway
+    ghostty
     helix
     flatpak.default
     obs-studio.default
