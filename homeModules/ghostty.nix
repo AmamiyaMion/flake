@@ -17,7 +17,8 @@
       font-family = "Maple Mono Normal NF";
       window-height = 35;
       window-width = 130;
-
+      background-blur = true;
+      background-opacity = 0.9;
       background = "1e1e2e";
       cursor-color = "f5e0dc";
       foreground = "cdd6f4";
