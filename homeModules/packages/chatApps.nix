@@ -10,7 +10,7 @@
     [
       evolution
       telegram-desktop
-      fractal
+      element-desktop
       wemeet
     ]
   );
