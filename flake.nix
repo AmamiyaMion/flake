@@ -113,6 +113,7 @@
               ssh-to-age
               openssh
               neovim
+              statix
             ])
             ++ enabledPackages;
           inherit shellHook;

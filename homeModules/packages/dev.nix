@@ -41,6 +41,9 @@
       (lib.mkIf (pkgs.stdenv.system == "x86_64-linux") arduino-ide)
       pius
       neovide
+      marksman
+      statix
+      zig
     ]
   );
 }
