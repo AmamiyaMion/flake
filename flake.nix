@@ -90,6 +90,7 @@
           src = ./.;
           hooks = {
             nixfmt.enable = true;
+            statix.enable = true;
           };
         };
       };

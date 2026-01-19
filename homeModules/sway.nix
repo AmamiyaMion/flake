@@ -16,11 +16,11 @@ in
     enable = true;
     theme = {
       name = "Vimix-light-ruby";
-      package = (pkgs.vimix-gtk-themes.override { themeVariants = [ "ruby" ]; });
+      package = pkgs.vimix-gtk-themes.override { themeVariants = [ "ruby" ]; };
     };
     iconTheme = {
       name = "Papirus";
-      package = (pkgs.papirus-icon-theme.override { color = "pink"; });
+      package = pkgs.papirus-icon-theme.override { color = "pink"; };
     };
   };
   home.pointerCursor = {

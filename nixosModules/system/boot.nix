@@ -23,7 +23,7 @@
       }
     ];
     boot.loader.limine = {
-      enable = config.mion.bootloader.limine.enable;
+      inherit (config.mion.bootloader.limine) enable;
       secureBoot.enable = config.mion.bootloader.limine.secureBoot.enable;
       enableEditor = false;
       style = {
