@@ -29,6 +29,7 @@
       kdePackages.kamoso
       kdePackages.sddm-kcm
       kdePackages.krdc
+      kdePackages.skanpage
       vlc
     ]
   );
