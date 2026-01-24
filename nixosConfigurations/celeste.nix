@@ -30,7 +30,7 @@
   mion.systemPackages.office.enable = true;
   mion.homeManager.enable = true;
   mion.homeManager.modules = with homeModules; [
-    base
+    default
     helix
     vscode
     ghostty
