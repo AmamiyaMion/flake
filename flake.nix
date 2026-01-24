@@ -10,7 +10,7 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
     mion-nur.url = "github:AmamiyaMion/nur";
     mion-nur.inputs.nixpkgs.follows = "nixpkgs";
-    nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
