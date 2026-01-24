@@ -14,4 +14,9 @@
     ./nano.nix
     inputs.nix-index-database.homeModules.default
   ];
+
+  home.sessionVariables = rec {
+    EDITOR = lib.mkDefault "nvim";
+    VISUAL = EDITOR;
+  };
 }
