@@ -27,6 +27,7 @@
 
   mion.bootloader.limine.enable = true;
   mion.bootloader.limine.secureBoot.enable = true;
+  mion.systemPackages.dev.enable = true;
   mion.systemPackages.office.enable = true;
   mion.homeManager.enable = true;
   mion.homeManager.modules = with homeModules; [
