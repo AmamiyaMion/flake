@@ -15,7 +15,7 @@
       nixfmt
       nixd
       file
-      ffmpeg
+      ffmpeg-full
       imagemagick
       emacs
       qbittorrent-enhanced
