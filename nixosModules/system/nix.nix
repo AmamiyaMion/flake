@@ -13,9 +13,12 @@
     "flakes"
   ];
 
-  # Mirror
   nix.settings.substituters = [
-    "https://mirror.sjtu.edu.cn/nix-channels/store"
+    "https://mirror.sjtu.edu.cn/nix-channels/store" # Mirror
+    "https://cache.garnix.io" # Garnix Cache
+  ];
+  nix.settings.trusted-public-keys = [
+    "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
   ];
 
   # Allow non-free software
