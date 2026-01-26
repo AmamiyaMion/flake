@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  globalSessionVariables = config.home.sessionVariables;
+in
 {
   home.shell = {
     enableBashIntegration = true;
@@ -12,6 +15,7 @@
 
   programs.bash = {
     enable = true;
+    sessionVariables = globalSessionVariables;
   };
 
   programs.starship = {
@@ -63,6 +67,7 @@
       autoload -Uz compinit
       compinit
     '';
+    sessionVariables = globalSessionVariables;
   };
 
   # Zoxide
