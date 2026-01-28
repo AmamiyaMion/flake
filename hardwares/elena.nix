@@ -6,11 +6,13 @@
   lib,
   pkgs,
   modulesPath,
+  nixosModules,
   ...
 }:
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    nixosModules.system.boot.limine
   ];
 
   boot.initrd.availableKernelModules = [
