@@ -15,7 +15,10 @@
       davinci-resolve
       gimp
       inkscape
-      kdePackages.kdenlive
+      # Temporarily removing kdenlive for
+      #   it fails to build aster nixpkgs
+      #   PR #477464 merged
+      # kdePackages.kdenlive
       krita
     ]
   );
