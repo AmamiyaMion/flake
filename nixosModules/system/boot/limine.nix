@@ -7,11 +7,12 @@
 }:
 
 {
+  boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.loader.limine = {
     enable = true;
-    enableeditor = false;
+    enableEditor = false;
     style = {
-      wallpapers = [ "${assetspath}/nix-wallpaper-nineish-pink.png" ];
+      wallpapers = [ "${assetsPath}/nix-wallpaper-nineish-pink.png" ];
       interface = {
         branding = "limine bootloader (nixos)";
       };
