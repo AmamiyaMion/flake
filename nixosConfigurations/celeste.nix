@@ -46,6 +46,7 @@
     packages.dev
     packages.workstation
     packages.games
+    packages.spotify
   ];
 
   # ratbagd (for piper)
