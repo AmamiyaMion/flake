@@ -20,6 +20,7 @@
   networking.firewall.enable = false;
 
   networking.nameservers = [
+    "127.0.0.1" # dnscrypt-proxy
     "119.29.29.29" # Tencent
     "9.9.9.9" # Quad9
     "1.1.1.1" # Cloudflare
