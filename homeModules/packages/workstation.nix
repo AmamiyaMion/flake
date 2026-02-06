@@ -20,6 +20,8 @@
       #   PR #477464 merged
       # kdePackages.kdenlive
       krita
+      wineWowPackages.stagingFull
+      winetricks
     ]
   );
 }

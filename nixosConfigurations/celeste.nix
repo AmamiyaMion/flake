@@ -36,8 +36,6 @@
     emacs
     flatpak.default
     flatpak.chatApps
-    flatpak.bottles
-    flatpak.extensionManager
     flatpak.typora
     obs-studio.default
     obs-studio.cuda
