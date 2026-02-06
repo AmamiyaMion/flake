@@ -3,6 +3,7 @@
   lib,
   pkgs,
   nixosModules,
+  assetsPath,
   ...
 }:
 
@@ -21,6 +22,10 @@
   environment.systemPackages = lib.mkOrder 800 (
     with pkgs;
     [
+      (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+        [General]
+        background=${assetsPath}/lockscreen.png
+      '')
       kdePackages.dragon
       kdePackages.kleopatra
       kdePackages.kmail
