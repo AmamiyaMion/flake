@@ -64,7 +64,7 @@ in
       };
       output = {
         "*" = {
-          bg = "${assetsPath}/nix-wallpaper-nineish-pink.png fill";
+          bg = "${assetsPath}/wallpaper.png fill";
         };
       };
       keybindings =
@@ -79,7 +79,7 @@ in
             "${modifier}+Alt+Space" = "focus mode_toggle";
             "${modifier}+Shift+s" = ''exec sh -c "slurp | grim -g - - | wl-copy"'';
             "${modifier}+Alt+l" =
-              "exec swaylock -l --ignore-empty-password --show-failed-attempts -c f5a9b8 -i ${assetsPath}/nix-wallpaper-nineish-pink.png";
+              "exec swaylock -l --ignore-empty-password --show-failed-attempts -c f5a9b8 -i ${assetsPath}/lockscreen.png";
             "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
             "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
             "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";

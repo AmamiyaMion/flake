@@ -12,7 +12,7 @@
     enable = true;
     enableEditor = false;
     style = {
-      wallpapers = [ "${assetsPath}/nix-wallpaper-nineish-pink.png" ];
+      wallpapers = [ "${assetsPath}/bootloader.png" ];
       interface = {
         branding = "limine bootloader (nixos)";
       };
