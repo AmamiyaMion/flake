@@ -28,7 +28,8 @@ in
         "kvm"
         "adbusers"
         "dialout"
-      ];
+      ]
+      ++ lib.optionals config.virtualisation.podman.enable [ "podman" ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrG7IrNH5u3LKXA/W9W/2yV+/lGXT9Ejl8FOhB28lus"
