@@ -17,6 +17,7 @@
     nixosModules.services.dae
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
+    nixosModules.services.podman
 
     nixosModules.desktop.steam
     nixosModules.desktop._1password
