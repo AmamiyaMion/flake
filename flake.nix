@@ -79,7 +79,7 @@
                     nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
                     mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
                   })
-                  inputs.nix-cachyos-kernel.overlays.pinned
+                  (lib.mkIf (system == "x86_64-linux") inputs.nix-cachyos-kernel.overlays.pinned)
                 ];
               }
             ];
