@@ -16,9 +16,11 @@
   nix.settings.substituters = [
     "https://mirror.sjtu.edu.cn/nix-channels/store" # Mirror
     "https://cache.garnix.io" # Garnix Cache
+    "https://cache.nixos-cuda.org" # CUDA
   ];
   nix.settings.trusted-public-keys = [
     "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
   ];
 
   # Allow non-free software
