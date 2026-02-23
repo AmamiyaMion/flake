@@ -22,6 +22,7 @@
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
@@ -78,6 +79,7 @@
                     nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
                     mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
                   })
+                  inputs.nix-cachyos-kernel.overlays.pinned
                 ];
               }
             ];

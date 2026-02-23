@@ -17,10 +17,12 @@
     "https://mirror.sjtu.edu.cn/nix-channels/store" # Mirror
     "https://cache.garnix.io" # Garnix Cache
     "https://cache.nixos-cuda.org" # CUDA
+    "https://attic.xuyh0120.win/lantian" # CachyOS Kernel
   ];
   nix.settings.trusted-public-keys = [
     "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+    "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
   ];
 
   # Allow non-free software
