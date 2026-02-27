@@ -1,4 +1,8 @@
 {
   "builds":
-    { "exclude": [], "include": ["nixosConfigurations.*"], "branch": "master" },
+    {
+      "exclude": [],
+      "include": ["nixosConfigurations.*", "devShells.*"],
+      "branch": "master",
+    },
 }
