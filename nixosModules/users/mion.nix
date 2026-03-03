@@ -28,6 +28,7 @@ in
         "kvm"
         "adbusers"
         "dialout"
+        "vboxusers"
       ]
       ++ lib.optionals config.virtualisation.podman.enable [ "podman" ];
       shell = pkgs.zsh;
