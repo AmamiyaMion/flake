@@ -13,7 +13,8 @@
 
     nixosModules.profiles.baseSystem.desktop.plasma.default
 
-    nixosModules.services.libvirt
+    # nixosModules.services.libvirt
+    nixosModules.services.virtualbox
     nixosModules.services.dae
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
