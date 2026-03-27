@@ -30,6 +30,7 @@
       ripgrep
       iw
       eza
+      nh
     ]
     ++ (lib.optionals config.mion.systemPackages.dev.enable [
       man-pages
