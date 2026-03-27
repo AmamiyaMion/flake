@@ -34,11 +34,6 @@
     ]
     ++ (lib.optionals config.mion.systemPackages.dev.enable [
       man-pages
-      sequoia-chameleon-gnupg
-      sequoia-sq
-      sequoia-sqop
-      sequoia-sqv
-      sequoia-wot
       ciel
       squashfsTools
       dpkg
