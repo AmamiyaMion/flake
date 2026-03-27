@@ -6,7 +6,7 @@
 }:
 {
   options.mion.systemPackages = {
-    office.enable = lib.mkEnableOption "Enable installation of office packages";
+    workstation.enable = lib.mkEnableOption "Enable installation of workstation packages";
     dev.enable = lib.mkEnableOption "Enable installation of system-level developers' packages";
   };
   config.environment.systemPackages = lib.mkOrder 300 (
@@ -44,7 +44,7 @@
       dpkg
       rpm
     ])
-    ++ (lib.optionals config.mion.systemPackages.office.enable [
+    ++ (lib.optionals config.mion.systemPackages.workstation.enable [
       libreoffice-fresh
       hunspell
       hunspellDicts.en_US

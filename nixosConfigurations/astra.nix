@@ -26,7 +26,7 @@
   networking.hostName = "astra"; # Define your hostname.
   networking.hostId = "42ccaa24"; # For zfs; Make it random!
 
-  mion.systemPackages.office.enable = true;
+  mion.systemPackages.workstation.enable = true;
   mion.homeManager.enable = true;
   mion.homeManager.modules = with homeModules; [
     default
