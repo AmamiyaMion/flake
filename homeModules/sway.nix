@@ -22,6 +22,7 @@ in
       name = "Papirus";
       package = pkgs.papirus-icon-theme.override { color = "pink"; };
     };
+    gtk4.theme = config.gtk.theme;
   };
   home.pointerCursor = {
     name = "Adwaita";
