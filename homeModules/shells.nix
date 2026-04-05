@@ -18,6 +18,7 @@ in
   home.shell = {
     enableBashIntegration = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.bash = {
@@ -30,6 +31,7 @@ in
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.zsh = {
@@ -68,10 +70,26 @@ in
     sessionVariables = globalSessionVariables;
   };
 
+  # Fish
+  programs.fish = {
+    enable = true;
+    plugins = map (x: { inherit (x) name src; }) (
+      with pkgs.fishPlugins;
+      [
+        plugin-git
+        fzf-fish
+        puffer
+      ]
+    );
+    shellInit = "set -g fish_greeting";
+    shellAliases = globalShellAliases;
+  };
+
   # Zoxide
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+    enableFishIntegration = true;
   };
 }
