@@ -21,7 +21,7 @@ in
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
-    enableZshIntegration = false;
+    enableZshIntegration = true;
   };
 
   programs.zsh = {
@@ -33,7 +33,6 @@ in
         ''
           zsh-users/zsh-autosuggestions
           ohmyzsh/ohmyzsh path:lib/git.zsh
-          romkatv/powerlevel10k
           amyreese/zsh-titles
           zsh-users/zsh-syntax-highlighting
           jeffreytse/zsh-vi-mode
@@ -51,9 +50,6 @@ in
       cd = "z";
     };
     autocd = true;
-    initContent = lib.mkOrder 1200 ''
-      source ${config.programs.zsh.dotDir}/.p10k.zsh
-    ''; # for p10k;
     completionInit = ''
       zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
       zstyle ':completion:*' expand prefix suffix
