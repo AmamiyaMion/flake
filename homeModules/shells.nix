@@ -6,6 +6,13 @@
 }:
 let
   globalSessionVariables = config.home.sessionVariables;
+  globalShellAliases = {
+    ls = "eza";
+    ll = "ls -l";
+    l = "ls -l";
+    la = "ls -la";
+    cd = "z";
+  };
 in
 {
   home.shell = {
@@ -16,6 +23,7 @@ in
   programs.bash = {
     enable = true;
     sessionVariables = globalSessionVariables;
+    shellAliases = globalShellAliases;
   };
 
   programs.starship = {
@@ -42,13 +50,7 @@ in
     history.size = 10000;
     history.ignoreAllDups = true;
     history.path = "$HOME/.zsh_history";
-    shellAliases = {
-      ls = "eza";
-      ll = "ls -l";
-      l = "ls -l";
-      la = "ls -la";
-      cd = "z";
-    };
+    shellAliases = globalShellAliases;
     autocd = true;
     completionInit = ''
       zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
