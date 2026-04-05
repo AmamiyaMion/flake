@@ -33,6 +33,7 @@ in
     enableZshIntegration = true;
     enableFishIntegration = true;
   };
+  xdg.configFile."starship.toml".source = ./externalConfigs/starship.toml;
 
   programs.zsh = {
     enable = true;
