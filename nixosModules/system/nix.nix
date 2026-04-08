@@ -6,7 +6,20 @@
   ...
 }:
 {
-  nix.package = pkgs.nixVersions.latest;
+  # Use Lix
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit (prev.lixPackageSets.latest)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
   # Enable nix command and flakes
   nix.settings.experimental-features = [
     "nix-command"
