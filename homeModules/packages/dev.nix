@@ -32,7 +32,6 @@
       ninja
       cargo
       rustc
-      android-tools
       gh
       go
       pnpm
