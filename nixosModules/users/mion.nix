@@ -27,6 +27,7 @@ in
         "wheel"
         "kvm"
         "dialout"
+        "plugdev"
         "vboxusers"
       ]
       ++ lib.optionals config.virtualisation.podman.enable [ "podman" ];
