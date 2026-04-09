@@ -26,7 +26,6 @@ in
       extraGroups = [
         "wheel"
         "kvm"
-        "adbusers"
         "dialout"
         "vboxusers"
       ]
