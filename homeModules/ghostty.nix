@@ -9,7 +9,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      shell-integration-features = "cursor,sudo,title";
+      shell-integration-features = "cursor,sudo,title,ssh-terminfo,ssh-env";
       theme = "Catppuccin Mocha";
       cursor-text = "#1e1e2e";
       cursor-invert-fg-bg = true;
