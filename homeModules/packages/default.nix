@@ -19,6 +19,7 @@
       imagemagick
       emacs
       qbittorrent-enhanced
+      fzf
     ]
   );
 
