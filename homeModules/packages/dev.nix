@@ -43,6 +43,7 @@
       marksman
       statix
       zig
+      lazygit
     ]
   );
 }
