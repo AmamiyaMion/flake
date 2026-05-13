@@ -20,6 +20,7 @@
       wineWow64Packages.stagingFull
       winetricks
       teamspeak6-client
+      librepods
     ]
   );
 }
