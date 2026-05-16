@@ -69,4 +69,9 @@
       kdePackages.kleopatra
     ]
   );
+
+  # Fix for GLib-GIO-ERROR: Settings schema 'org.gtk.Settings.FileChooser' is not installed
+  environment.sessionVariables.XDG_DATA_DIRS = [
+    "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+  ];
 }
