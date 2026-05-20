@@ -243,7 +243,7 @@
             ".histfile"
             ".zsh_history"
             ".config/hyfetch.json"
-            ".local/share/mimeapps.list"
+            ".config/mimeapps.list"
             ".local/share/recently-used.xbel"
             ".local/share/user-places.xbel"
           ];
