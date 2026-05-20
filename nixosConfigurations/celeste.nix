@@ -87,6 +87,7 @@
         {
           directory = "/var/lib/sops-nix";
           mode = "0700";
+          inInitrd = true;
         }
         "/var/lib/AccountsService"
         "/var/log"
