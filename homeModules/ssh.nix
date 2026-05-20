@@ -23,8 +23,8 @@
     #   Host *
     #       IdentityAgent ~/.1password/agent.sock
     # '';
-    matchBlocks."*".identityAgent = "~/.1password/agent.sock";
-    matchBlocks."*".extraOptions = {
+    settings."*" = {
+      IdentityAgent = "~/.1password/agent.sock";
       Include = "config.d/*";
     };
   };

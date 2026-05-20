@@ -16,6 +16,7 @@
   ];
 
   xdg.userDirs.enable = true;
+  xdg.userDirs.setSessionVariables = true;
 
   home.sessionVariables = rec {
     EDITOR = lib.mkDefault "nvim";
