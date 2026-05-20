@@ -6,7 +6,7 @@
   ...
 }:
 {
-  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
+  sops.age.keyFile = "/persist/var/lib/sops-nix/key.txt";
   sops.secrets.ts_authkey = {
     format = "json";
     sopsFile = "${secretsPath}/tailscale.json";
