@@ -63,6 +63,10 @@
     options = [ "subvol=@persist" ];
   };
 
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/0d558dbf-36cc-4168-83e5-1b7a1f98099a"; }
+  ];
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
