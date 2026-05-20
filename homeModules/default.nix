@@ -15,6 +15,8 @@
     inputs.nix-index-database.homeModules.default
   ];
 
+  xdg.userDirs.enable = true;
+
   home.sessionVariables = rec {
     EDITOR = lib.mkDefault "nvim";
     VISUAL = EDITOR;
