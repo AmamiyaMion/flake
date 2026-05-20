@@ -105,11 +105,13 @@
           file = "/etc/ssh/ssh_host_rsa_key";
           how = "symlink";
           configureParent = true;
+          inInitrd = true;
         }
         {
           file = "/etc/ssh/ssh_host_ed25519_key";
           how = "symlink";
           configureParent = true;
+          inInitrd = true;
         }
         {
           file = "/var/lib/systemd/random-seed";
