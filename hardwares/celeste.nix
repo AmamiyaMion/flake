@@ -30,27 +30,41 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/mapper/cryptdsk-NixRoot";
-    fsType = "xfs";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/5D52-126E";
-    fsType = "vfat";
+    device = "none";
+    fsType = "tmpfs";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "defaults"
+      "size=25%"
+      "mode=755"
     ];
   };
 
-  swapDevices = [
-    { device = "/dev/mapper/cryptdsk-SWAP"; }
-  ];
+  boot.initrd.luks.devices."cryptroot".device =
+    "/dev/disk/by-uuid/54afe72b-337a-4b13-b701-dcdf239e72e2";
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/9879-9F54";
+    fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [ "subvol=@nix" ];
+  };
+
+  fileSystems."/persist" = {
+    device = "/dev/mapper/cryptroot";
+    fsType = "btrfs";
+    options = [ "subvol=@persist" ];
+  };
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  boot.initrd.luks.devices.cryptroot.device =
-    "/dev/disk/by-uuid/a4340961-22b7-43e0-9f69-d489b745b772";
 
   # This is to fix frequent Bluetooth audio dropouts.
   boot.extraModprobeConfig = ''
