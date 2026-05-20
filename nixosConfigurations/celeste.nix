@@ -84,7 +84,10 @@
         "/var/lib/systemd/rfkill"
         "/var/lib/systemd/timers"
         "/var/lib/sbctl"
-        "/var/lib/sops-nix"
+        {
+          directory = "/var/lib/sops-nix";
+          mode = "0700";
+        }
         "/var/lib/AccountsService"
         "/var/log"
         {
