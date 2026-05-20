@@ -85,6 +85,7 @@
         "/var/lib/systemd/timers"
         "/var/lib/sbctl"
         "/var/lib/sops-nix"
+        "/var/lib/AccountsService"
         "/var/log"
         {
           directory = "/var/lib/nixos";
@@ -206,6 +207,7 @@
             }
             ".local/share/krita"
             ".local/share/mime"
+            ".local/share/nvim"
             ".local/share/neovide"
             ".local/share/org.gnome.Evolution"
             ".local/share/pnpm"
