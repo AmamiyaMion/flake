@@ -27,7 +27,7 @@
   ];
 
   nix.settings.substituters = [
-    "https://mirror.sjtu.edu.cn/nix-channels/store" # Mirror
+    # "https://mirror.sjtu.edu.cn/nix-channels/store" # Mirror
     "https://cache.garnix.io" # Garnix Cache
     "https://cache.nixos-cuda.org" # CUDA
     "https://attic.xuyh0120.win/lantian" # CachyOS Kernel
