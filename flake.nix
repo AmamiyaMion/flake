@@ -23,7 +23,6 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-    preservation.url = "github:nix-community/preservation";
   };
 
   outputs =
