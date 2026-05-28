@@ -6,7 +6,7 @@
   ...
 }:
 {
-  sops.age.keyFile = "/persist/etc/ssh/ssh_host_ed25519_key";
+  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
   sops.secrets.ts_authkey = {
     format = "json";
     sopsFile = "${secretsPath}/tailscale.json";
