@@ -44,7 +44,6 @@
       hunspell
       hunspellDicts.en_US
       ispell
-      bitwarden-desktop
     ])
   );
 }

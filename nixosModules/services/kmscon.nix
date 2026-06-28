@@ -7,13 +7,8 @@
 {
   services.kmscon = {
     enable = true;
-    hwRender = true;
+    config.hwaccel = true;
     useXkbConfig = true;
-    fonts = [
-      {
-        name = "Maple Mono Normal NF CN";
-        package = pkgs.maple-mono.Normal-NF-CN;
-      }
-    ];
+    config.font-name = "Maple Mono Normal NF";
   };
 }

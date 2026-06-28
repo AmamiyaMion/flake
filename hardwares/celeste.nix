@@ -28,43 +28,22 @@
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-
   fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [
-      "defaults"
-      "size=25%"
-      "mode=755"
-    ];
+    device = "UUID=17701de8-d5a8-453f-a286-3a2db1e60d63";
+    fsType = "bcachefs";
   };
-
-  boot.initrd.luks.devices."cryptroot".device =
-    "/dev/disk/by-uuid/54afe72b-337a-4b13-b701-dcdf239e72e2";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/9879-9F54";
+    device = "/dev/disk/by-uuid/61D0-8EA2";
     fsType = "vfat";
     options = [
-      "fmask=0077"
-      "dmask=0077"
+      "fmask=0022"
+      "dmask=0022"
     ];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/mapper/cryptroot";
-    fsType = "btrfs";
-    options = [ "subvol=@nix" ];
-  };
-
-  fileSystems."/persist" = {
-    device = "/dev/mapper/cryptroot";
-    fsType = "btrfs";
-    options = [ "subvol=@persist" ];
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/0d558dbf-36cc-4168-83e5-1b7a1f98099a"; }
+    { device = "/dev/disk/by-uuid/5d4077e6-8638-496f-92c8-6a520e426bae"; }
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

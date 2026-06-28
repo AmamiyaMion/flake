@@ -20,7 +20,7 @@
     (lib.mkIf (stdenv.system == "x86_64-linux") gutenprintBin)
     hplipWithPlugin
     postscript-lexmark
-    samsung-unified-linux-driver
+    # samsung-unified-linux-driver
     splix
     brlaser
     (lib.mkIf (stdenv.system == "x86_64-linux") brgenml1lpr)
