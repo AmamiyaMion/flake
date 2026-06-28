@@ -15,6 +15,7 @@
     system.kernel
     system.net
     system.nix
+    system.pam_u2f
     system.secrets
     system.tzlocale
     system.packages

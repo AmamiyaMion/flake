@@ -44,7 +44,7 @@ in
     # Disable sudo. We use sudo-rs.
     security.sudo.enable = false;
     security.sudo-rs.enable = true;
-    security.sudo-rs.wheelNeedsPassword = false;
+    # security.sudo-rs.wheelNeedsPassword = false;
 
     home-manager = lib.mkIf config.mion.homeManager.enable {
       users."${username}" = {
