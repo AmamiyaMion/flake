@@ -60,7 +60,7 @@ in
           natural_scroll = "enabled";
         };
         "type:keyboard" = {
-          xkb_options = ''"ctrl:swapcaps"'';
+          xkb_options = ''"ctrl:nocaps"'';
         };
       };
       output = {
