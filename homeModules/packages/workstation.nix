@@ -21,6 +21,8 @@
       winetricks
       teamspeak6-client
       librepods
+      opencode
+      opencode-desktop
     ]
   );
 }
