@@ -31,6 +31,8 @@
       iw
       eza
       nh
+      openssl
+      zellij
     ]
     ++ (lib.optionals config.mion.systemPackages.dev.enable [
       man-pages
