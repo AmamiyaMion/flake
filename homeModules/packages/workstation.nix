@@ -23,6 +23,7 @@
       librepods
       opencode
       opencode-desktop
+      splayer
     ]
   );
 }
