@@ -75,8 +75,8 @@
               inputs.sops-nix.nixosModules.sops
               {
                 nixpkgs.overlays = [
+                  inputs.nur.overlays.default
                   (final: prev: {
-                    nur = inputs.nur.packages."${prev.stdenv.hostPlatform.system}";
                     mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
                   })
                   (lib.mkIf (system == "x86_64-linux") inputs.nix-cachyos-kernel.overlays.pinned)
