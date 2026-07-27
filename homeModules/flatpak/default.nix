@@ -18,7 +18,6 @@
     packages = lib.mkOrder 100 [
       "com.github.tchx84.Flatseal"
       "org.localsend.localsend_app"
-      "io.github.qier222.YesPlayMusic"
     ];
     overrides = {
       global.Context = {
