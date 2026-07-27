@@ -15,7 +15,7 @@
     nixosModules.profiles.baseSystem.desktop.gnome.default
 
     # nixosModules.services.libvirt
-    nixosModules.services.virtualbox
+    # nixosModules.services.virtualbox
     nixosModules.services.dae
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
