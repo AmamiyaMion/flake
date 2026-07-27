@@ -23,6 +23,7 @@
       librepods
       opencode
       opencode-desktop
+      nur.repos.awa2333.YesPlayMusic
     ]
   );
 }
