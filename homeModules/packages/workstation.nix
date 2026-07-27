@@ -8,11 +8,11 @@
   home.packages = lib.mkOrder 505 (
     with pkgs;
     [
-      cider-2
+      # cider-2
       foliate
       piper
       darktable
-      davinci-resolve
+      # davinci-resolve
       gimp
       inkscape
       kdePackages.kdenlive
