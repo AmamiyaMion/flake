@@ -8,7 +8,6 @@
   ...
 }:
 {
-  # `celeste` is a stateless NixOS. Mind your steps when bootstrapping.
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
 
