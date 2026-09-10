@@ -23,6 +23,7 @@
       librepods
       opencode
       opencode-desktop
+      pi-coding-agent
       splayer
     ]
   );
