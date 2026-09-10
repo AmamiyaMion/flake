@@ -24,7 +24,7 @@
       opencode
       opencode-desktop
       pi-coding-agent
-      splayer
+      splayer-next
     ]
   );
 }

@@ -42,7 +42,7 @@
       rpm
     ])
     ++ (lib.optionals config.mion.systemPackages.workstation.enable [
-      libreoffice-fresh
+      libreoffice-stable
       hunspell
       hunspellDicts.en_US
       ispell
