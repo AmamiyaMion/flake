@@ -12,8 +12,14 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    nixosModules.system.boot.lanzaboote
+    nixosModules.system.boot.limine
   ];
+  boot.loader.limine.secureBoot.enable = true;
+  boot.loader.limine.extraEntries = ''
+    /Windows
+      protocol: efi
+      path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+  '';
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
