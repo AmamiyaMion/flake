@@ -9,7 +9,7 @@
 }:
 {
   imports = [
-    inputs.nixos-hardware.nixosModules.lenovo-ideapad-15ach6 # nixos-hardware 82L5
+    inputs.nixos-hardware.nixosModules.lenovo-ideapad-16ach6 # nixos-hardware 82L5
 
     nixosModules.profiles.baseSystem.desktop.gnome.default
 
