@@ -17,6 +17,7 @@
         branding = "limine bootloader (nixos)";
       };
     };
+    extraConfig = "remember_last_entry: yes";
   };
 
 }
