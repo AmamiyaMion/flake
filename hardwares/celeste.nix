@@ -78,4 +78,5 @@
   environment.systemPackages = lib.mkOrder 699 [ pkgs.amdgpu_top ];
   hardware.graphics.enable = true;
   hardware.nvidia.open = true;
+  hardware.nvidia.branch = "latest";
 }
