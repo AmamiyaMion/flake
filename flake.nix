@@ -20,7 +20,6 @@
     git-hooks.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.url = "github:nix-community/lanzaboote";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
@@ -77,7 +76,6 @@
                   (final: prev: {
                     mion-nur = inputs.mion-nur.packages."${prev.stdenv.hostPlatform.system}";
                   })
-                  (lib.mkIf (system == "x86_64-linux") inputs.nix-cachyos-kernel.overlays.pinned)
                 ];
               }
             ];

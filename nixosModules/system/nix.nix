@@ -29,11 +29,11 @@
   nix.settings.substituters = [
     # "https://mirror.sjtu.edu.cn/nix-channels/store" # Mirror
     "https://cache.nixos-cuda.org" # CUDA
-    "https://attic.xuyh0120.win/lantian" # CachyOS Kernel
+    # "https://attic.xuyh0120.win/lantian" # CachyOS Kernel
   ];
   nix.settings.trusted-public-keys = [
     "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
-    "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    # "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
   ];
 
   # Allow non-free software
