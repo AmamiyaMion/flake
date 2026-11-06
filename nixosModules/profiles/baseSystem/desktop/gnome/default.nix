@@ -60,7 +60,6 @@
     ++ (with pkgs.gnomeExtensions; [
       appindicator
       astra-monitor
-      auto-adwaita-colors
       blur-my-shell
       caffeine
       clipboard-indicator
