@@ -9,7 +9,6 @@
     with pkgs;
     [
       (if (stdenv.system == "x86_64-linux") then google-chrome else chromium)
-      floorp-bin
       fastfetch
       hyfetch
       nixfmt

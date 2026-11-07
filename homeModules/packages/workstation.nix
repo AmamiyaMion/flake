@@ -8,7 +8,6 @@
   home.packages = lib.mkOrder 505 (
     with pkgs;
     [
-      cider-2
       foliate
       piper
       darktable
@@ -19,8 +18,6 @@
       krita
       wineWow64Packages.stagingFull
       winetricks
-      teamspeak6-client
-      librepods
       pi-coding-agent
       splayer-next
     ]
