@@ -19,6 +19,7 @@
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
     nixosModules.services.podman
+    nixosModules.services.howdy
 
     nixosModules.desktop.steam
     nixosModules.desktop._1password
@@ -50,6 +51,9 @@
 
   # ratbagd (for piper)
   services.ratbagd.enable = true;
+
+  # howdy camera config
+  services.howdy.settings.video.device_path = "/dev/video2";
 
   # Enable the OpenSSH daemon.
   services.openssh = {
