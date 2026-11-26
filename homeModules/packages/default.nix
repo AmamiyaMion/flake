@@ -19,6 +19,8 @@
       emacs
       qbittorrent-enhanced
       fzf
+      proton-pass
+      proton-pass-cli
     ]
   );
 

@@ -18,13 +18,8 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    # 1Password SSH Agent
-    # extraConfig = ''
-    #   Host *
-    #       IdentityAgent ~/.1password/agent.sock
-    # '';
     settings."*" = {
-      IdentityAgent = "~/.1password/agent.sock";
+      IdentityAgent = "~/.ssh/proton-pass-ssh-agent.sock";
       Include = "config.d/*";
     };
   };
