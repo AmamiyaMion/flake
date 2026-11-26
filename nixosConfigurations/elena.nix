@@ -13,8 +13,6 @@
     nixosModules.services.dae
     nixosModules.services.kmscon
     nixosModules.services.clash-verge
-
-    nixosModules.desktop._1password
   ];
 
   networking.hostName = "elena"; # Define your hostname.

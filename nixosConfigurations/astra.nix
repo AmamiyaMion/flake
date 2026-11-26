@@ -18,8 +18,6 @@
     nixosModules.services.clash-verge
     nixosModules.services.docker
 
-    nixosModules.desktop._1password
-
     nixosModules.services.wayvnc
   ];
 

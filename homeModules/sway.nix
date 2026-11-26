@@ -101,7 +101,6 @@ in
         }
         { command = "clash-verge"; }
         { command = "mako"; }
-        { command = "1password"; }
         {
           command = ''
             swayidle -w \

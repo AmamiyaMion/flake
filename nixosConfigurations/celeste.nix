@@ -22,7 +22,6 @@
     nixosModules.services.howdy
 
     nixosModules.desktop.steam
-    nixosModules.desktop._1password
   ];
 
   networking.hostName = "celeste"; # Define your hostname.
